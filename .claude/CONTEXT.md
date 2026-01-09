@@ -1,5 +1,5 @@
 # Hydrogen Forge - Project Context
-## Last Updated: 2026-01-09 | Infrastructure Complete
+## Last Updated: 2026-01-09 | Week 1, Day 2 Complete
 
 ---
 
@@ -13,6 +13,10 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
+### Sprint: Week 1 - Foundation
+**Day 1-2:** Complete ✅
+**Day 3:** Base Theme Setup ← NEXT
+
 ### Completed ✅
 - [x] Market research - identified empty market (1 consumer theme, no developer ecosystem)
 - [x] Competitive analysis - documented Ciseco, Weaverse, platform-locked starters
@@ -24,62 +28,68 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] 5 role configs created (ARCHITECT, HYDROGEN, TOOLING, DOCS, MANAGER)
 - [x] MCP sync package scaffolded (packages/mcp-claude-sync)
 - [x] Session template and workflow established
+- [x] **4-week sprint plan created with role assignments**
 
-### In Progress 🔄
-- [ ] Base theme development
-
-### Not Started ⏳
-- [ ] Enhanced Shopify MCP
-- [ ] Hydrogen-specific MCP
-- [ ] CLI tooling
-
----
-
-## KEY DOCUMENTS CREATED
-
-| Document | Location | Purpose |
-|----------|----------|---------|
-| Master Plan | HYDROGEN-FORGE-MASTER-PLAN.md | 4-week execution plan, vision, architecture |
-| Market Research | research/MARKET-RESEARCH.md | Competitive analysis, opportunity assessment |
-| Rules | .claude/RULES.md | Code quality, git workflow, commit conventions |
-| Priorities | .claude/PRIORITIES.md | Current sprint tracking |
-| Decisions | .claude/DECISIONS.md | Architecture Decision Records |
+### Day 3 Tasks (Next Session)
+| Task | Role | Priority |
+|------|------|----------|
+| Create starter theme in templates/starter/ | HYDROGEN | P0 |
+| Configure TypeScript strict mode | HYDROGEN | P0 |
+| Set up Tailwind CSS | HYDROGEN | P0 |
+| ADR-005: Component architecture pattern | ARCHITECT | P0 |
 
 ---
 
-## KEY FINDINGS FROM RESEARCH
+## 4-WEEK EXECUTION PLAN
 
-### Market Gap
-```
-WHAT EXISTS:
-- Shopify official: skeleton (bare) + demo-store (snowboards)
-- ThemeForest: 1 theme (Ciseco, $49, 120 sales, consumer-focused)
-- Platform-locked: Pack, Sanity, Contentful, Weaverse starters
+### Week 1: Foundation (Days 1-5)
+- Day 1-2: Research & infrastructure ✅
+- Day 3: Base theme setup (HYDROGEN)
+- Day 4: Layout components - Header, Footer, Nav (HYDROGEN)
+- Day 5: CI/CD & quality gates (TOOLING)
 
-WHAT DOESN'T EXIST:
-- Standalone developer-focused starter
-- MCP integration for AI-assisted development
-- CLI scaffolding tools
-- Comprehensive ecosystem (theme + tools + templates)
-```
+### Week 2: Core Components + MCP (Days 6-10)
+- Day 6-7: Product components (HYDROGEN)
+- Day 8-9: Enhanced Shopify MCP (TOOLING)
+- Day 10: Cart & Collection components (HYDROGEN)
 
-### Demo Store Analysis (Mock.shop)
-```
-STRUCTURE:
-- 30 routes (pages)
-- 27 components
-- Snowboard products with variants
-- Basic collections
-- No metafields examples
-- Single product niche
+### Week 3: Search + Hydrogen MCP (Days 11-15)
+- Day 11-12: Search components (HYDROGEN)
+- Day 13-14: Hydrogen MCP (TOOLING)
+- Day 15: Integration testing (ALL)
 
-OPPORTUNITIES:
-- Multi-industry demo data
-- Edge cases (OOS, sale, backorder)
-- Metafields examples
-- Better variant coverage
-- Developer-focused documentation
-```
+### Week 4: CLI + Launch (Days 16-20)
+- Day 16-17: CLI development (TOOLING)
+- Day 18-19: Documentation (DOCS)
+- Day 20: Launch (ALL)
+
+---
+
+## DELIVERABLES BY WEEK
+
+### Week 1 Deliverables
+- [ ] Base theme compiles and runs
+- [ ] Layout components (Header, Footer, Nav, MobileMenu)
+- [ ] CI/CD pipeline (GitHub Actions)
+- [ ] ADR-005, ADR-006 documented
+
+### Week 2 Deliverables
+- [ ] Product components (Card, Grid, Gallery, Form, Price)
+- [ ] Cart components (Drawer, LineItem)
+- [ ] Collection components (Grid, Filters)
+- [ ] Enhanced Shopify MCP with executeGraphQL
+
+### Week 3 Deliverables
+- [ ] Search components (Dialog, PredictiveSearch)
+- [ ] Hydrogen MCP (scaffoldComponent, scaffoldRoute)
+- [ ] 95+ PageSpeed score
+- [ ] Accessibility compliance
+
+### Week 4 Deliverables
+- [ ] CLI (npx hydrogen-forge create)
+- [ ] All documentation complete
+- [ ] Live demo deployed
+- [ ] npm packages published
 
 ---
 
@@ -100,6 +110,11 @@ OPPORTUNITIES:
 ### ADR-004: GitHub as Single Source of Truth
 **Decision:** All collaboration files, context, session logs in GitHub
 **Rationale:** Enables seamless handoffs between Claude Chat, Code, and Projects
+
+### Pending Decisions
+- ADR-005: Component architecture pattern
+- ADR-006: State management approach
+- ADR-007: MCP tool design
 
 ---
 
@@ -132,7 +147,7 @@ C:\xampp\htdocs\HYDROGEN-FORGE\
 github.com/nathanmcmullendev/hydrogen-forge/
 ├── .claude/
 │   ├── CONTEXT.md              # This file (always read first)
-│   ├── PRIORITIES.md           # Current sprint
+│   ├── PRIORITIES.md           # Sprint plan with day-by-day tasks
 │   ├── DECISIONS.md            # ADRs
 │   ├── RULES.md                # Working rules
 │   └── projects/               # Role-specific instructions
@@ -147,68 +162,48 @@ github.com/nathanmcmullendev/hydrogen-forge/
 ├── research/                   # Research artifacts
 ├── packages/
 │   └── mcp-claude-sync/        # Collaboration MCP (scaffolded)
+├── templates/                  # Theme templates (Week 1)
 ├── docs/                       # Documentation
-└── templates/                  # Theme templates
+└── CLAUDE.md                   # Auto-read bootstrap file
 ```
 
 ### The 5 Roles
-| Role | Owner | Responsibilities |
-|------|-------|------------------|
-| MANAGER | Claude Chat | Orchestration, task assignment, review |
-| ARCHITECT | Claude Code | Planning, decisions, quality review |
+| Role | Owner | Focus |
+|------|-------|-------|
+| MANAGER | Claude Chat | Orchestration, task assignment |
+| ARCHITECT | Claude Code | Planning, ADRs, quality review |
 | HYDROGEN | Claude Code | Components, routes, React code |
 | TOOLING | Claude Code | MCPs, CLI, CI/CD |
-| DOCS | Claude Code | READMEs, tutorials, guides |
+| DOCS | Claude Code | Documentation, guides |
 
 ### Session Workflow
 ```
 1. User tells Claude Code which role: "Act as HYDROGEN"
 2. Claude Code reads .claude/projects/hydrogen.md
-3. Claude Code executes tasks following role rules
-4. Claude Code pushes session log and updates CONTEXT.md
-5. User returns to MANAGER (Claude Chat) for review
+3. Claude Code checks PRIORITIES.md for current tasks
+4. Claude Code executes tasks following role rules
+5. Claude Code pushes session log and updates CONTEXT.md
+6. User returns to MANAGER (Claude Chat) for review
 ```
 
 ---
 
-## NEXT PRIORITY
+## NEXT SESSION INSTRUCTIONS
 
-**Immediate:** Begin base theme development
+**Role Needed:** HYDROGEN (or ARCHITECT first for ADR-005)
 
-1. Create starter theme from skeleton template
-2. Set up component library structure
-3. Implement core layout components
-4. Connect to dev store for testing
+**Tasks:**
+1. Create starter theme structure in templates/starter/
+2. Configure TypeScript strict mode
+3. Set up Tailwind CSS
+4. Verify build works
 
-**Then:** Enhanced Shopify MCP development
-
----
-
-## SESSION INSTRUCTIONS
-
-### For Claude Chat (MANAGER)
+**Start Command:**
 ```
-1. Read this CONTEXT.md first
-2. Check PRIORITIES.md for current focus
-3. Assign tasks to appropriate roles
-4. Review session outputs from Claude Code
+Act as HYDROGEN for this session.
+Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
+Execute Day 3 tasks: Base Theme Setup.
 ```
-
-### For Claude Code
-```
-1. User specifies role: "Act as HYDROGEN"
-2. Read role file from .claude/projects/
-3. Read CONTEXT.md for project state
-4. Follow RULES.md for working style
-5. On session end: push updates, create session log
-```
-
-### Commit Prefixes
-- [ARCHITECT] - Planning, architecture changes
-- [HYDROGEN] - Component and route code
-- [TOOLING] - MCP, CLI, build config
-- [DOCS] - Documentation updates
-- [SYNC] - Automated context updates
 
 ---
 
