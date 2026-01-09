@@ -1,5 +1,5 @@
 # Hydrogen Forge - Project Context
-## Last Updated: 2026-01-09 | Week 1, Day 2 Complete
+## Last Updated: 2026-01-09 | Week 1, Day 3 Complete
 
 ---
 
@@ -14,8 +14,8 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 ## CURRENT STATUS
 
 ### Sprint: Week 1 - Foundation
-**Day 1-2:** Complete ✅
-**Day 3:** Base Theme Setup ← NEXT
+**Day 1-4:** Complete ✅
+**Day 5:** CI/CD & Quality ← NEXT
 
 ### Completed ✅
 - [x] Market research - identified empty market (1 consumer theme, no developer ecosystem)
@@ -29,14 +29,24 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] MCP sync package scaffolded (packages/mcp-claude-sync)
 - [x] Session template and workflow established
 - [x] **4-week sprint plan created with role assignments**
+- [x] **Day 3: Base theme created in templates/starter/**
+- [x] **TypeScript strict mode configured**
+- [x] **Tailwind CSS set up with custom component classes**
+- [x] **Day 4: Layout components with Tailwind CSS**
+  - Header.tsx - sticky header, logo, navigation, cart badge with SVG icons
+  - Footer.tsx - grid layout, brand section, social links, copyright
+  - Navigation.tsx - desktop/mobile views with active state styling
+  - Aside.tsx (MobileMenu) - slide-in panel with overlay backdrop
+  - PageLayout.tsx - updated imports
 
-### Day 3 Tasks (Next Session)
+### Day 5 Tasks (Next Session)
 | Task | Role | Priority |
 |------|------|----------|
-| Create starter theme in templates/starter/ | HYDROGEN | P0 |
-| Configure TypeScript strict mode | HYDROGEN | P0 |
-| Set up Tailwind CSS | HYDROGEN | P0 |
-| ADR-005: Component architecture pattern | ARCHITECT | P0 |
+| GitHub Actions workflow (lint, type, test, build) | TOOLING | P0 |
+| Pre-commit hooks (husky + lint-staged) | TOOLING | P1 |
+| README with badges | DOCS | P1 |
+| CONTRIBUTING.md | DOCS | P1 |
+| Quality review: Week 1 | ARCHITECT | P0 |
 
 ---
 
@@ -190,19 +200,19 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** HYDROGEN (or ARCHITECT first for ADR-005)
+**Role Needed:** TOOLING (for CI/CD) or DOCS (for README/CONTRIBUTING)
 
 **Tasks:**
-1. Create starter theme structure in templates/starter/
-2. Configure TypeScript strict mode
-3. Set up Tailwind CSS
-4. Verify build works
+1. GitHub Actions workflow (lint, type, test, build)
+2. Pre-commit hooks (husky + lint-staged)
+3. README with badges
+4. CONTRIBUTING.md
 
 **Start Command:**
 ```
-Act as HYDROGEN for this session.
-Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
-Execute Day 3 tasks: Base Theme Setup.
+Act as TOOLING for this session.
+Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
+Execute Day 5 tasks: CI/CD & Quality.
 ```
 
 ---
