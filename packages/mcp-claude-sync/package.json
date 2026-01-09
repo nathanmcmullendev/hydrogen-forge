@@ -1,0 +1,18 @@
+{
+  "name": "@hydrogen-forge/mcp-claude-sync",
+  "version": "0.1.0",
+  "description": "MCP tools for Claude collaboration sync",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
