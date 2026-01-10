@@ -88,9 +88,24 @@ function SearchResultsPredictiveArticles({
   if (!articles.length) return null;
 
   return (
-    <div className="predictive-search-result" key="articles">
-      <h5>Articles</h5>
-      <ul>
+    <div className="py-3" key="articles">
+      <h5 className="mb-2 flex items-center gap-2 px-2 text-xs font-semibold uppercase tracking-wide text-secondary-500">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+          />
+        </svg>
+        Articles
+      </h5>
+      <ul className="space-y-1">
         {articles.map((article) => {
           const articleUrl = urlWithTrackingParams({
             baseUrl: `/blogs/${article.blog.handle}/${article.handle}`,
@@ -99,19 +114,26 @@ function SearchResultsPredictiveArticles({
           });
 
           return (
-            <li className="predictive-search-result-item" key={article.id}>
-              <Link onClick={closeSearch} to={articleUrl}>
+            <li key={article.id}>
+              <Link
+                onClick={closeSearch}
+                to={articleUrl}
+                className="flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-secondary-100"
+              >
                 {article.image?.url && (
-                  <Image
-                    alt={article.image.altText ?? ''}
-                    src={article.image.url}
-                    width={50}
-                    height={50}
-                  />
+                  <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md bg-secondary-100">
+                    <Image
+                      alt={article.image.altText ?? ''}
+                      src={article.image.url}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 )}
-                <div>
-                  <span>{article.title}</span>
-                </div>
+                <span className="truncate text-sm font-medium text-secondary-900">
+                  {article.title}
+                </span>
               </Link>
             </li>
           );
@@ -129,9 +151,24 @@ function SearchResultsPredictiveCollections({
   if (!collections.length) return null;
 
   return (
-    <div className="predictive-search-result" key="collections">
-      <h5>Collections</h5>
-      <ul>
+    <div className="py-3" key="collections">
+      <h5 className="mb-2 flex items-center gap-2 px-2 text-xs font-semibold uppercase tracking-wide text-secondary-500">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          />
+        </svg>
+        Collections
+      </h5>
+      <ul className="space-y-1">
         {collections.map((collection) => {
           const collectionUrl = urlWithTrackingParams({
             baseUrl: `/collections/${collection.handle}`,
@@ -140,19 +177,42 @@ function SearchResultsPredictiveCollections({
           });
 
           return (
-            <li className="predictive-search-result-item" key={collection.id}>
-              <Link onClick={closeSearch} to={collectionUrl}>
-                {collection.image?.url && (
-                  <Image
-                    alt={collection.image.altText ?? ''}
-                    src={collection.image.url}
-                    width={50}
-                    height={50}
-                  />
+            <li key={collection.id}>
+              <Link
+                onClick={closeSearch}
+                to={collectionUrl}
+                className="flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-secondary-100"
+              >
+                {collection.image?.url ? (
+                  <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md bg-secondary-100">
+                    <Image
+                      alt={collection.image.altText ?? ''}
+                      src={collection.image.url}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-secondary-100">
+                    <svg
+                      className="h-5 w-5 text-secondary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
+                    </svg>
+                  </div>
                 )}
-                <div>
-                  <span>{collection.title}</span>
-                </div>
+                <span className="truncate text-sm font-medium text-secondary-900">
+                  {collection.title}
+                </span>
               </Link>
             </li>
           );
@@ -170,9 +230,24 @@ function SearchResultsPredictivePages({
   if (!pages.length) return null;
 
   return (
-    <div className="predictive-search-result" key="pages">
-      <h5>Pages</h5>
-      <ul>
+    <div className="py-3" key="pages">
+      <h5 className="mb-2 flex items-center gap-2 px-2 text-xs font-semibold uppercase tracking-wide text-secondary-500">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
+        Pages
+      </h5>
+      <ul className="space-y-1">
         {pages.map((page) => {
           const pageUrl = urlWithTrackingParams({
             baseUrl: `/pages/${page.handle}`,
@@ -181,11 +256,30 @@ function SearchResultsPredictivePages({
           });
 
           return (
-            <li className="predictive-search-result-item" key={page.id}>
-              <Link onClick={closeSearch} to={pageUrl}>
-                <div>
-                  <span>{page.title}</span>
+            <li key={page.id}>
+              <Link
+                onClick={closeSearch}
+                to={pageUrl}
+                className="flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-secondary-100"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-secondary-100">
+                  <svg
+                    className="h-5 w-5 text-secondary-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
                 </div>
+                <span className="truncate text-sm font-medium text-secondary-900">
+                  {page.title}
+                </span>
               </Link>
             </li>
           );
@@ -203,9 +297,24 @@ function SearchResultsPredictiveProducts({
   if (!products.length) return null;
 
   return (
-    <div className="predictive-search-result" key="products">
-      <h5>Products</h5>
-      <ul>
+    <div className="py-3" key="products">
+      <h5 className="mb-2 flex items-center gap-2 px-2 text-xs font-semibold uppercase tracking-wide text-secondary-500">
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+          />
+        </svg>
+        Products
+      </h5>
+      <ul className="space-y-1">
         {products.map((product) => {
           const productUrl = urlWithTrackingParams({
             baseUrl: `/products/${product.handle}`,
@@ -215,20 +324,50 @@ function SearchResultsPredictiveProducts({
 
           const price = product?.selectedOrFirstAvailableVariant?.price;
           const image = product?.selectedOrFirstAvailableVariant?.image;
+
           return (
-            <li className="predictive-search-result-item" key={product.id}>
-              <Link to={productUrl} onClick={closeSearch}>
-                {image && (
-                  <Image
-                    alt={image.altText ?? ''}
-                    src={image.url}
-                    width={50}
-                    height={50}
-                  />
+            <li key={product.id}>
+              <Link
+                to={productUrl}
+                onClick={closeSearch}
+                className="flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-secondary-100"
+              >
+                {image ? (
+                  <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md bg-secondary-100">
+                    <Image
+                      alt={image.altText ?? ''}
+                      src={image.url}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-secondary-100">
+                    <svg
+                      className="h-5 w-5 text-secondary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      />
+                    </svg>
+                  </div>
                 )}
-                <div>
-                  <p>{product.title}</p>
-                  <small>{price && <Money data={price} />}</small>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium text-secondary-900">
+                    {product.title}
+                  </p>
+                  {price && (
+                    <p className="text-sm text-secondary-500">
+                      <Money data={price} />
+                    </p>
+                  )}
                 </div>
               </Link>
             </li>
@@ -268,9 +407,25 @@ function SearchResultsPredictiveEmpty({
   }
 
   return (
-    <p>
-      No results found for <q>{term.current}</q>
-    </p>
+    <div className="px-4 py-8 text-center">
+      <svg
+        className="mx-auto h-10 w-10 text-secondary-300"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+      <p className="mt-3 text-sm text-secondary-500">
+        No results found for{' '}
+        <span className="font-medium text-secondary-700">"{term.current}"</span>
+      </p>
+    </div>
   );
 }
 

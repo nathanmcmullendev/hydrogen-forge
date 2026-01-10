@@ -87,14 +87,15 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] **CollectionGrid** - Responsive grid with image cards, overlays, skeleton loader
 - [x] **CollectionFilters** - Sort dropdown, filter groups, active filter chips
 
-### Week 3, Day 11-12 Tasks (Next)
+### Week 3, Day 11-12: Search Components (In Progress)
 
-| Task                       | Role     | Priority |
-| -------------------------- | -------- | -------- |
-| SearchDialog component     | HYDROGEN | P0       |
-| PredictiveSearch component | HYDROGEN | P0       |
-| Performance optimization   | HYDROGEN | P1       |
-| Accessibility audit        | HYDROGEN | P1       |
+- [x] **SearchDialog** - Modal search with Cmd+K, predictive results, keyboard nav
+- [x] **SearchResultsPredictive** - Enhanced with Tailwind, product/collection/page results
+
+**Remaining:**
+
+- [ ] Performance optimization pass
+- [ ] Accessibility audit
 
 ---
 
