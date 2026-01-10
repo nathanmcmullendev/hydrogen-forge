@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 1 Complete
+## Last Updated: 2026-01-09 | Week 2, Day 8-9 Complete
 
 ---
 
@@ -14,9 +14,9 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 1 - Foundation ✅ COMPLETE
+### Sprint: Week 2 - Core Components + MCP
 
-**All 5 days completed successfully!**
+**Week 1 Complete, Day 8-9 Complete, Day 10 Next**
 
 ### Week 1 Completed ✅
 
@@ -55,14 +55,38 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] **ProductPrice** - Price display with sale badges
 - [x] **AddToCartButton** - Loading state, variants (primary/secondary/outline)
 
-### Week 2, Day 8-9 Tasks (Next Session)
+### Week 2, Day 8-9: Enhanced Shopify MCP ✅ COMPLETE
 
-| Task                                  | Role    | Priority |
-| ------------------------------------- | ------- | -------- |
-| Set up packages/mcp-shopify structure | TOOLING | P0       |
-| executeGraphQL tool (key feature)     | TOOLING | P0       |
-| Product operations                    | TOOLING | P0       |
-| Inventory operations                  | TOOLING | P1       |
+- [x] **packages/mcp-shopify** - Full MCP server package
+- [x] **executeGraphQL** - Run any Shopify Admin API query/mutation
+- [x] **Product operations** - create, update, get, list, delete
+- [x] **Inventory operations** - update, adjust, get levels, list locations, get product inventory
+- [x] **MCP server entry point** - 11 tools registered with Zod validation
+- [x] **README.md** - Full documentation with setup instructions
+
+**MCP Tools Available:**
+| Tool | Description |
+|------|-------------|
+| executeGraphQL | Any GraphQL query/mutation |
+| createProduct | Create with variants/images |
+| updateProduct | Update product fields |
+| getProduct | Get by ID or handle |
+| listProducts | Filter and sort |
+| deleteProduct | Delete by ID |
+| updateInventory | Set quantity |
+| adjustInventory | Delta adjustment |
+| getInventoryLevels | Stock across locations |
+| listLocations | All inventory locations |
+| getProductInventory | Variant inventory details |
+
+### Week 2, Day 10 Tasks (Current)
+
+| Task                        | Role     | Priority |
+| --------------------------- | -------- | -------- |
+| CartDrawer component        | HYDROGEN | P0       |
+| CartLineItem component      | HYDROGEN | P0       |
+| CollectionGrid component    | HYDROGEN | P0       |
+| CollectionFilters component | HYDROGEN | P1       |
 
 ---
 
@@ -106,10 +130,10 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ### Week 2 Deliverables
 
-- [ ] Product components (Card, Grid, Gallery, Form, Price)
+- [x] Product components (Card, Grid, Gallery, Form, Price)
 - [ ] Cart components (Drawer, LineItem)
 - [ ] Collection components (Grid, Filters)
-- [ ] Enhanced Shopify MCP with executeGraphQL
+- [x] Enhanced Shopify MCP with executeGraphQL (11 tools)
 
 ### Week 3 Deliverables
 
@@ -203,6 +227,7 @@ github.com/nathanmcmullendev/hydrogen-forge/
 │   └── logs/                   # Session logs
 ├── research/                   # Research artifacts
 ├── packages/
+│   ├── mcp-shopify/            # Enhanced Shopify MCP (11 tools)
 │   └── mcp-claude-sync/        # Collaboration MCP (scaffolded)
 ├── templates/                  # Theme templates (Week 1)
 ├── docs/                       # Documentation
@@ -236,20 +261,19 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 **Role Needed:** HYDROGEN
 
-**Tasks (Week 2, Day 6-7):**
+**Tasks (Week 2, Day 10):**
 
-1. ProductCard component
-2. ProductGrid component
-3. ProductGallery component
-4. ProductForm (variant selection, add to cart)
-5. ProductPrice component
+1. CartDrawer component - slide-out cart panel
+2. CartLineItem component - individual cart item display
+3. CollectionGrid component - product collection display
+4. CollectionFilters component - filter/sort UI
 
 **Start Command:**
 
 ```
 Act as HYDROGEN for this session.
 Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
-Execute Week 2, Day 6-7 tasks: Product Components.
+Execute Week 2, Day 10 tasks: Cart & Collection Components.
 ```
 
 ---

@@ -3,7 +3,7 @@
 ## Current Sprint: Week 2 - Core Components + MCP
 
 **Start Date:** 2026-01-09
-**Status:** Week 1 Complete, Day 6-7 Next
+**Status:** Day 8-9 Complete, Day 10 Next
 
 ---
 
@@ -62,18 +62,19 @@
 | ProductPrice component                       | HYDROGEN | P1       | ✅     |
 | AddToCartButton component                    | HYDROGEN | P0       | ✅     |
 
-### Day 8-9: Enhanced Shopify MCP ← CURRENT
+### Day 8-9: Enhanced Shopify MCP ✅ COMPLETE
 
-| Task                                       | Role      | Priority | Status |
-| ------------------------------------------ | --------- | -------- | ------ |
-| Set up packages/mcp-shopify structure      | TOOLING   | P0       | ⏳     |
-| executeGraphQL tool (key feature)          | TOOLING   | P0       | ⏳     |
-| Product operations (createProductComplete) | TOOLING   | P0       | ⏳     |
-| Inventory operations                       | TOOLING   | P1       | ⏳     |
-| ADR-007: MCP tool design                   | ARCHITECT | P0       | ⏳     |
-| MCP tool documentation                     | DOCS      | P0       | ⏳     |
+| Task                                                     | Role      | Priority | Status |
+| -------------------------------------------------------- | --------- | -------- | ------ |
+| Set up packages/mcp-shopify structure                    | TOOLING   | P0       | ✅     |
+| executeGraphQL tool (key feature)                        | TOOLING   | P0       | ✅     |
+| Product operations (create, update, get, list, delete)   | TOOLING   | P0       | ✅     |
+| Inventory operations (update, adjust, levels, locations) | TOOLING   | P1       | ✅     |
+| MCP server entry point & tool registration               | TOOLING   | P0       | ✅     |
+| MCP tool documentation (README.md)                       | DOCS      | P0       | ✅     |
+| ADR-007: MCP tool design                                 | ARCHITECT | P0       | ⏳     |
 
-### Day 10: Cart & Collection Components
+### Day 10: Cart & Collection Components ← CURRENT
 
 | Task                        | Role      | Priority | Status |
 | --------------------------- | --------- | -------- | ------ |
@@ -182,20 +183,20 @@
 
 ### TOOLING Backlog
 
-| Task                            | Week | Priority |
-| ------------------------------- | ---- | -------- |
-| GitHub Actions CI               | 1    | P0       |
-| Pre-commit hooks                | 1    | P1       |
-| MCP Shopify: executeGraphQL     | 2    | P0       |
-| MCP Shopify: product ops        | 2    | P0       |
-| MCP Shopify: inventory ops      | 2    | P1       |
-| MCP Hydrogen: scaffoldComponent | 3    | P0       |
-| MCP Hydrogen: scaffoldRoute     | 3    | P0       |
-| MCP Hydrogen: analyzeProject    | 3    | P1       |
-| CLI: create command             | 4    | P0       |
-| CLI: add command                | 4    | P1       |
-| CLI: setup-mcp                  | 4    | P1       |
-| npm publish                     | 4    | P0       |
+| Task                            | Week | Priority | Status |
+| ------------------------------- | ---- | -------- | ------ |
+| GitHub Actions CI               | 1    | P0       | ✅     |
+| Pre-commit hooks                | 1    | P1       | ✅     |
+| MCP Shopify: executeGraphQL     | 2    | P0       | ✅     |
+| MCP Shopify: product ops        | 2    | P0       | ✅     |
+| MCP Shopify: inventory ops      | 2    | P1       | ✅     |
+| MCP Hydrogen: scaffoldComponent | 3    | P0       | ⏳     |
+| MCP Hydrogen: scaffoldRoute     | 3    | P0       | ⏳     |
+| MCP Hydrogen: analyzeProject    | 3    | P1       | ⏳     |
+| CLI: create command             | 4    | P0       | ⏳     |
+| CLI: add command                | 4    | P1       | ⏳     |
+| CLI: setup-mcp                  | 4    | P1       | ⏳     |
+| npm publish                     | 4    | P0       | ⏳     |
 
 ### DOCS Backlog
 
@@ -263,4 +264,4 @@
 
 ---
 
-_Updated: 2026-01-09 | Sprint: Week 1_
+_Updated: 2026-01-09 | Sprint: Week 2, Day 10_
