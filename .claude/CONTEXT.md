@@ -46,15 +46,23 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
   - README.md with badges
   - CONTRIBUTING.md with guidelines
 
-### Week 2 Tasks (Next Session)
+### Week 2, Day 6-7: Product Components ✅ COMPLETE
 
-| Task                                         | Role     | Priority |
-| -------------------------------------------- | -------- | -------- |
-| ProductCard component                        | HYDROGEN | P0       |
-| ProductGrid component                        | HYDROGEN | P0       |
-| ProductGallery component                     | HYDROGEN | P0       |
-| ProductForm (variant selection, add to cart) | HYDROGEN | P0       |
-| ProductPrice component                       | HYDROGEN | P1       |
+- [x] **ProductCard** - Card with image, badges (Sale/Sold out), hover effects
+- [x] **ProductGrid** - Responsive grid with skeleton loading
+- [x] **ProductGallery** - Image gallery with thumbnails and navigation
+- [x] **ProductForm** - Variant selection with swatches
+- [x] **ProductPrice** - Price display with sale badges
+- [x] **AddToCartButton** - Loading state, variants (primary/secondary/outline)
+
+### Week 2, Day 8-9 Tasks (Next Session)
+
+| Task                                  | Role    | Priority |
+| ------------------------------------- | ------- | -------- |
+| Set up packages/mcp-shopify structure | TOOLING | P0       |
+| executeGraphQL tool (key feature)     | TOOLING | P0       |
+| Product operations                    | TOOLING | P0       |
+| Inventory operations                  | TOOLING | P1       |
 
 ---
 

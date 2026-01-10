@@ -51,17 +51,18 @@
 
 ## Week 2: Core Components + MCP (Days 6-10)
 
-### Day 6-7: Product Components ← CURRENT
+### Day 6-7: Product Components ✅ COMPLETE
 
 | Task                                         | Role     | Priority | Status |
 | -------------------------------------------- | -------- | -------- | ------ |
-| ProductCard component                        | HYDROGEN | P0       | ⏳     |
-| ProductGrid component                        | HYDROGEN | P0       | ⏳     |
-| ProductGallery component                     | HYDROGEN | P0       | ⏳     |
-| ProductForm (variant selection, add to cart) | HYDROGEN | P0       | ⏳     |
-| ProductPrice component                       | HYDROGEN | P1       | ⏳     |
+| ProductCard component                        | HYDROGEN | P0       | ✅     |
+| ProductGrid component                        | HYDROGEN | P0       | ✅     |
+| ProductGallery component                     | HYDROGEN | P0       | ✅     |
+| ProductForm (variant selection, add to cart) | HYDROGEN | P0       | ✅     |
+| ProductPrice component                       | HYDROGEN | P1       | ✅     |
+| AddToCartButton component                    | HYDROGEN | P0       | ✅     |
 
-### Day 8-9: Enhanced Shopify MCP
+### Day 8-9: Enhanced Shopify MCP ← CURRENT
 
 | Task                                       | Role      | Priority | Status |
 | ------------------------------------------ | --------- | -------- | ------ |
