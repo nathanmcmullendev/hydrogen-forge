@@ -19,26 +19,26 @@ import {
   type FrameOption,
 } from '~/integrations/frame-customizer';
 
-// Demo frame options - replace with real PNG overlays
+// Frame options with SVG overlays
 const DEMO_FRAMES: FrameOption[] = [
   {
     id: 'black',
     name: 'Black Wood',
-    overlayUrl: '', // Add real PNG: /frames/black-frame.png
+    overlayUrl: '/frames/black-frame.svg',
     swatchColor: '#1a1a1a',
     priceModifier: 2500,
   },
   {
     id: 'oak',
     name: 'Natural Oak',
-    overlayUrl: '', // Add real PNG: /frames/oak-frame.png
+    overlayUrl: '/frames/oak-frame.svg',
     swatchColor: '#c4a77d',
     priceModifier: 3500,
   },
   {
     id: 'white',
     name: 'White',
-    overlayUrl: '', // Add real PNG: /frames/white-frame.png
+    overlayUrl: '/frames/white-frame.svg',
     swatchColor: '#ffffff',
     priceModifier: 2000,
   },
