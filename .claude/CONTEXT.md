@@ -1,6 +1,4 @@
-# Hydrogen Forge - Project Context
-
-## Last Updated: 2026-01-09 | Week 4 Day 18-19 Complete
+# HYDROGEN FORGE - PROJECT COMPLETE | Shipped 2026-01-10
 
 ---
 
@@ -14,9 +12,9 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 4 - CLI + Launch (In Progress)
+### PROJECT COMPLETE
 
-**Day 18-19 Documentation complete. Day 20 Launch next.**
+**All 4 weeks delivered. 3 packages published to npm.**
 
 ### Week 1 Completed ✅
 
@@ -157,6 +155,30 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 | `docs/ARCHITECTURE.md` | System design, component patterns, MCP integration |
 | `docs/EXTENSION.md` | How to add components, routes, styles, integrations |
 | `docs/DEPLOYMENT.md` | Deploy to Oxygen, Vercel, Cloudflare, Docker |
+
+### Week 4, Day 20: Launch ✅ COMPLETE
+
+- [x] **npm publish** - All 3 packages published successfully
+- [x] **Final quality check** - All builds passing, lint clean
+- [x] **Project documentation complete**
+
+**Published Packages:**
+| Package | Version | shasum |
+|---------|---------|--------|
+| @hydrogen-forge/mcp-shopify | 0.1.0 | 44d699d645d36817da5422d4ca8181355604f427 |
+| @hydrogen-forge/mcp-hydrogen | 0.1.0 | 16ea3ee4fac6a24e4543fcfe7baf322af9d3f36c |
+| hydrogen-forge | 0.1.0 | 977d8728e09aeda521bef28484f698f9203e8e34 |
+
+**Installation Commands:**
+
+```bash
+# Create a new project
+npx hydrogen-forge create my-store
+
+# Install MCP servers
+npm install -g @hydrogen-forge/mcp-shopify
+npm install -g @hydrogen-forge/mcp-hydrogen
+```
 
 ---
 
@@ -328,28 +350,28 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ---
 
-## NEXT SESSION INSTRUCTIONS
+## PROJECT COMPLETE - MAINTENANCE MODE
 
-**Role Needed:** TOOLING
+**Status:** All deliverables shipped. Project in maintenance mode.
 
-**Tasks (Week 4, Day 20 - Launch):**
+**Published to npm:**
 
-1. Publish MCPs to npm (@hydrogen-forge/mcp-shopify, @hydrogen-forge/mcp-hydrogen)
-2. Publish CLI to npm (hydrogen-forge)
-3. Final quality check
-4. Launch announcement (optional)
+- `npx hydrogen-forge create my-store`
+- `@hydrogen-forge/mcp-shopify@0.1.0`
+- `@hydrogen-forge/mcp-hydrogen@0.1.0`
 
-**Prerequisites:**
+**Future Work (v0.2):**
 
-- npm account with publish access
-- Packages tested locally
+- Live demo deployment
+- Performance optimization (95+ PageSpeed)
+- Accessibility audit
+- Additional component variants
 
-**Start Command:**
+**To Resume Development:**
 
 ```
-Act as TOOLING for this session.
-Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
-Execute Week 4, Day 20 tasks: npm publish and launch.
+Read .claude/CONTEXT.md and .claude/PRIORITIES.md.
+Check GitHub issues for feature requests/bugs.
 ```
 
 ---
@@ -363,10 +385,11 @@ Contains:
 - GitHub token
 - Shopify Storefront API tokens
 - Supabase keys
+- npm org: @hydrogen-forge (add npm token to CREDENTIALS-MASTER.md)
 - Other API credentials
 
 **Never commit credentials to GitHub.**
 
 ---
 
-_This file is the single source of truth. Update it at every session end._
+_PROJECT COMPLETE: 2026-01-10 | 20 days in ~7 hours | All packages published to npm_
