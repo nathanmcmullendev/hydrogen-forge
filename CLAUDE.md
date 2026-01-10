@@ -1,3 +1,11 @@
+## MCP SERVERS - USE THESE TOOLS DIRECTLY
+
+- hydrogen-forge-shopify: listProducts, getProduct, createProduct, executeGraphQL
+- hydrogen-forge-hydrogen: scaffoldComponent, scaffoldRoute, analyzeProject
+  DO NOT READ SOURCE FILES. CALL THE MCP TOOLS.
+
+---
+
 # Hydrogen Forge - Claude Code Session Bootstrap
 
 ## Project Overview
@@ -11,12 +19,15 @@ Key differentiator: Every existing Hydrogen starter is locked to a platform (Pac
 ## Session Start Protocol
 
 ### 1. Pull Latest Context
+
 ```
 Read: .claude/CONTEXT.md
 ```
+
 This file contains current project state, completed work, and next priorities.
 
 ### 2. Determine Your Role
+
 Ask the user: **"Which role should I use for this session?"**
 
 Available roles (read from `.claude/projects/`):
@@ -30,9 +41,11 @@ Available roles (read from `.claude/projects/`):
 If user doesn't specify, check `PRIORITIES.md` for current sprint focus.
 
 ### 3. Load Role Instructions
+
 ```
 Read: .claude/projects/{role}.md
 ```
+
 Follow that role's specific responsibilities and constraints.
 
 ---
@@ -61,21 +74,22 @@ END
 
 ## Key File Locations
 
-| File | Purpose |
-|------|---------|
-| `.claude/CONTEXT.md` | Project state (read first, update at end) |
-| `.claude/PRIORITIES.md` | Current sprint tasks |
-| `.claude/DECISIONS.md` | Architecture Decision Records |
-| `.claude/RULES.md` | Code quality, git workflow, commit conventions |
-| `.claude/projects/*.md` | Role-specific instructions |
-| `.sessions/TEMPLATE.md` | Session log template |
-| `.sessions/logs/` | Historical session logs |
+| File                    | Purpose                                        |
+| ----------------------- | ---------------------------------------------- |
+| `.claude/CONTEXT.md`    | Project state (read first, update at end)      |
+| `.claude/PRIORITIES.md` | Current sprint tasks                           |
+| `.claude/DECISIONS.md`  | Architecture Decision Records                  |
+| `.claude/RULES.md`      | Code quality, git workflow, commit conventions |
+| `.claude/projects/*.md` | Role-specific instructions                     |
+| `.sessions/TEMPLATE.md` | Session log template                           |
+| `.sessions/logs/`       | Historical session logs                        |
 
 ---
 
 ## Working Style
 
 See `.claude/RULES.md` for:
+
 - Code quality standards (TypeScript strict, no `any`)
 - Git workflow (one file at a time, verify before next change)
 - Commit convention (`<type>(<scope>): <description> [ROLE]`)
@@ -86,6 +100,7 @@ See `.claude/RULES.md` for:
 ## Commit Prefixes
 
 Always include role in commits:
+
 - `[ARCHITECT]` - Planning, architecture changes
 - `[HYDROGEN]` - Component and route code
 - `[TOOLING]` - MCP, CLI, build config

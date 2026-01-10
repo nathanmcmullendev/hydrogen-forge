@@ -3,6 +3,7 @@
 CREDENTIALS*.md
 *.env
 .env.*
+.mcp.json
 
 # Dependencies
 node_modules/

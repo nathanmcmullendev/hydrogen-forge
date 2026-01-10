@@ -359,7 +359,7 @@ async function createMcpConfig(
     mcpServers: {
       'hydrogen-forge-shopify': {
         command: 'npx',
-        args: ['-y', '@anthropic/mcp-shopify'],
+        args: ['-y', '@hydrogen-forge/mcp-shopify'],
         env: {
           SHOPIFY_STORE_DOMAIN: credentials.storeDomain,
           SHOPIFY_STOREFRONT_ACCESS_TOKEN: credentials.storefrontApiToken,

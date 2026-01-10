@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "mcp__hydrogen-forge-shopify__listProducts",
+      "mcp__hydrogen-forge-shopify__executeGraphQL",
+      "Bash(npm version:*)",
+      "Bash(npm publish:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nchore\\(cli\\): release v0.2.0 [TOOLING]\n\n- Bump version from 0.1.3 to 0.2.0\n- Add CHANGELOG.md with release notes\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(ls:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["hydrogen-forge-shopify"]
+}

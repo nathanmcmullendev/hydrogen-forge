@@ -19,7 +19,7 @@ npm install @hydrogen-forge/mcp-shopify
 Set the following environment variables:
 
 ```bash
-SHOPIFY_SHOP_DOMAIN=your-store.myshopify.com
+SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
 SHOPIFY_ACCESS_TOKEN=shpat_xxxxxxxxxxxxx
 SHOPIFY_API_VERSION=2024-10  # optional, defaults to 2024-10
 ```
@@ -46,7 +46,7 @@ Add to your `.claude.json` or MCP settings:
       "command": "npx",
       "args": ["@hydrogen-forge/mcp-shopify"],
       "env": {
-        "SHOPIFY_SHOP_DOMAIN": "your-store.myshopify.com",
+        "SHOPIFY_STORE_DOMAIN": "your-store.myshopify.com",
         "SHOPIFY_ACCESS_TOKEN": "shpat_xxxxxxxxxxxxx"
       }
     }
