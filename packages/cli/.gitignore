@@ -1,6 +1,7 @@
 # Build output
 dist/
 
-# Templates are copied from root templates/ before npm publish
-# Not needed in git repo (avoids duplication)
-templates/
+# Build artifacts in templates
+templates/starter/dist/
+templates/starter/node_modules/
+templates/starter/.cache/

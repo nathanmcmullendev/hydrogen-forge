@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Build outputs
+/.cache
+/build
+/dist
+/public/build
+/.mf
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Shopify
+.shopify
+
+# React Router
+.react-router
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo

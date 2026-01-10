@@ -1,4 +1,4 @@
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import * as path from 'node:path';
 import chalk from 'chalk';
 import {printSuccess, printError, printInfo} from '../lib/utils.js';

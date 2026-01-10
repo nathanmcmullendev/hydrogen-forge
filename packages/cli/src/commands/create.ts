@@ -1,4 +1,4 @@
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import * as path from 'node:path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
@@ -169,9 +169,10 @@ async function getTemplateDir(template: string): Promise<string> {
   }
 
   // Check in the package's templates directory (published)
+  // From dist/commands/create.js -> ../../templates
   const packageTemplate = path.resolve(
     import.meta.dirname,
-    '../templates',
+    '../../templates',
     template,
   );
 
