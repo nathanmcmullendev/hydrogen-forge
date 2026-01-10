@@ -20,6 +20,7 @@ program
   .option('-t, --template <template>', 'Template to use', 'starter')
   .option('--skip-install', 'Skip npm install')
   .option('--skip-git', 'Skip git initialization')
+  .option('--skip-mcp', 'Skip MCP configuration for Claude Code')
   .action(createCommand);
 
 // Add command - hydrogen-forge add <type> <name>

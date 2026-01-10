@@ -17,6 +17,13 @@ interface CreateOptions {
   template: string;
   skipInstall?: boolean;
   skipGit?: boolean;
+  skipMcp?: boolean;
+}
+
+interface ShopifyCredentials {
+  storeDomain: string;
+  storefrontApiToken: string;
+  adminAccessToken: string;
 }
 
 export async function createCommand(
@@ -75,8 +82,18 @@ export async function createCommand(
     }
   }
 
-  const totalSteps = options.skipInstall ? (options.skipGit ? 2 : 3) : (options.skipGit ? 3 : 4);
+  // Calculate total steps based on options
+  let totalSteps = 2; // Base: create dir + configure
+  if (!options.skipGit) totalSteps++;
+  if (!options.skipMcp) totalSteps++;
+  if (!options.skipInstall) totalSteps++;
   let currentStep = 1;
+
+  // Collect MCP credentials early (before project creation) if not skipped
+  let shopifyCredentials: ShopifyCredentials | null = null;
+  if (!options.skipMcp) {
+    shopifyCredentials = await promptForShopifyCredentials();
+  }
 
   // Step 1: Create project directory
   printStep(currentStep++, totalSteps, 'Creating project directory...');
@@ -122,7 +139,20 @@ export async function createCommand(
     );
   }
 
-  // Step 4: Install dependencies (optional)
+  // Step 4: Configure MCP for Claude Code (optional)
+  if (!options.skipMcp && shopifyCredentials) {
+    printStep(currentStep++, totalSteps, 'Configuring MCP for Claude Code...');
+
+    await withSpinner(
+      {text: 'Creating .mcp.json and CLAUDE.md'},
+      async () => {
+        await createMcpConfig(targetDir, shopifyCredentials!);
+        await createClaudeMd(targetDir, projectName);
+      },
+    );
+  }
+
+  // Step 5: Install dependencies (optional)
   if (!options.skipInstall) {
     printStep(currentStep++, totalSteps, 'Installing dependencies...');
 
@@ -151,9 +181,15 @@ export async function createCommand(
   console.log(chalk.dim('To connect to Shopify, run:'));
   console.log(`  ${chalk.cyan('npx shopify hydrogen link')}`);
   console.log();
-  console.log(chalk.dim('To set up MCP servers for Claude Code:'));
-  console.log(`  ${chalk.cyan('hydrogen-forge setup-mcp')}`);
-  console.log();
+  if (shopifyCredentials) {
+    console.log(chalk.green('✓ MCP configured for Claude Code'));
+    console.log(chalk.dim('  Open this project in Claude Code and ask "what products do I have?"'));
+    console.log();
+  } else if (!options.skipMcp) {
+    console.log(chalk.dim('To set up MCP servers for Claude Code later:'));
+    console.log(`  ${chalk.cyan('hydrogen-forge setup-mcp')}`);
+    console.log();
+  }
 }
 
 async function getTemplateDir(template: string): Promise<string> {
@@ -222,9 +258,166 @@ PUBLIC_CUSTOMER_ACCOUNT_API_URL=""
 .cache
 dist
 .env
+.mcp.json
 *.local
 .DS_Store
 `;
     await fs.writeFile(gitignorePath, gitignoreContent);
+  } else {
+    // Ensure .mcp.json is in existing .gitignore
+    const existingGitignore = await fs.readFile(gitignorePath, 'utf-8');
+    if (!existingGitignore.includes('.mcp.json')) {
+      await fs.appendFile(gitignorePath, '\n.mcp.json\n');
+    }
   }
+}
+
+async function promptForShopifyCredentials(): Promise<ShopifyCredentials | null> {
+  console.log();
+  console.log(chalk.bold('🔌 MCP Configuration'));
+  console.log(chalk.dim('Configure Claude Code to work with your Shopify store'));
+  console.log();
+
+  const { setupMcp } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'setupMcp',
+      message: 'Would you like to configure MCP for Claude Code integration?',
+      default: true,
+    },
+  ]);
+
+  if (!setupMcp) {
+    console.log(chalk.dim('Skipping MCP setup. Run "hydrogen-forge setup-mcp" later to configure.'));
+    return null;
+  }
+
+  console.log();
+  console.log(chalk.dim('You can find these values in your Shopify admin:'));
+  console.log(chalk.dim('  Store domain: Settings → Domains'));
+  console.log(chalk.dim('  Storefront API token: Settings → Apps → Develop apps → Storefront API'));
+  console.log(chalk.dim('  Admin access token: Settings → Apps → Develop apps → Admin API'));
+  console.log();
+
+  const credentials = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'storeDomain',
+      message: 'Shopify store domain (e.g., my-store.myshopify.com):',
+      validate: (input: string) => {
+        if (!input.trim()) {
+          return 'Store domain is required';
+        }
+        if (!input.includes('.myshopify.com') && !input.includes('.')) {
+          return 'Please enter a valid domain (e.g., my-store.myshopify.com)';
+        }
+        return true;
+      },
+    },
+    {
+      type: 'password',
+      name: 'storefrontApiToken',
+      message: 'Storefront API access token:',
+      mask: '*',
+      validate: (input: string) => {
+        if (!input.trim()) {
+          return 'Storefront API token is required';
+        }
+        return true;
+      },
+    },
+    {
+      type: 'password',
+      name: 'adminAccessToken',
+      message: 'Admin API access token (for MCP tools):',
+      mask: '*',
+      validate: (input: string) => {
+        if (!input.trim()) {
+          return 'Admin access token is required';
+        }
+        return true;
+      },
+    },
+  ]);
+
+  return credentials as ShopifyCredentials;
+}
+
+async function createMcpConfig(
+  targetDir: string,
+  credentials: ShopifyCredentials,
+): Promise<void> {
+  const mcpConfig = {
+    mcpServers: {
+      'hydrogen-forge-shopify': {
+        command: 'npx',
+        args: ['-y', '@anthropic/mcp-shopify'],
+        env: {
+          SHOPIFY_STORE_DOMAIN: credentials.storeDomain,
+          SHOPIFY_STOREFRONT_ACCESS_TOKEN: credentials.storefrontApiToken,
+          SHOPIFY_ADMIN_ACCESS_TOKEN: credentials.adminAccessToken,
+        },
+      },
+    },
+  };
+
+  const mcpPath = path.join(targetDir, '.mcp.json');
+  await fs.writeJson(mcpPath, mcpConfig, { spaces: 2 });
+}
+
+async function createClaudeMd(targetDir: string, projectName: string): Promise<void> {
+  const claudeMdContent = `# ${projectName} - Claude Code Instructions
+
+## MCP Servers Available
+
+This project is configured with MCP (Model Context Protocol) servers for Claude Code integration.
+
+### Shopify MCP Tools
+
+Use these tools directly - DO NOT read source files to understand products/inventory:
+
+| Tool | Description |
+|------|-------------|
+| \`listProducts\` | List all products with filtering and pagination |
+| \`getProduct\` | Get a single product by ID or handle |
+| \`createProduct\` | Create a new product |
+| \`updateProduct\` | Update an existing product |
+| \`deleteProduct\` | Delete a product |
+| \`executeGraphQL\` | Run any GraphQL query against Shopify Admin API |
+| \`getInventoryLevels\` | Get inventory for an item across locations |
+| \`updateInventory\` | Set inventory quantity |
+| \`adjustInventory\` | Adjust inventory by delta |
+| \`listLocations\` | List all inventory locations |
+
+### Example Queries
+
+- "What products do I have?" → Use \`listProducts\`
+- "Show me the Blue T-Shirt details" → Use \`getProduct\`
+- "Create a new product called..." → Use \`createProduct\`
+- "Update inventory for..." → Use \`updateInventory\`
+
+## Project Structure
+
+This is a Shopify Hydrogen project built with Remix.
+
+\`\`\`
+app/
+├── components/     # React components
+├── routes/         # Remix routes (pages)
+├── lib/           # Utilities and helpers
+└── styles/        # CSS files
+\`\`\`
+
+## Development Commands
+
+\`\`\`bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npx shopify hydrogen link    # Link to Shopify store
+\`\`\`
+`;
+
+  const claudeMdPath = path.join(targetDir, 'CLAUDE.md');
+  await fs.writeFile(claudeMdPath, claudeMdContent);
 }
