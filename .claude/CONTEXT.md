@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 2 Complete
+## Last Updated: 2026-01-09 | Week 3 Day 11-12 Complete
 
 ---
 
@@ -14,9 +14,9 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 2 - Core Components + MCP ✅ COMPLETE
+### Sprint: Week 3 - Search + Hydrogen MCP (In Progress)
 
-**All Week 2 tasks completed! Ready for Week 3.**
+**Day 11-12 Search Components complete. Day 13-14 Hydrogen MCP next.**
 
 ### Week 1 Completed ✅
 
@@ -87,12 +87,12 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] **CollectionGrid** - Responsive grid with image cards, overlays, skeleton loader
 - [x] **CollectionFilters** - Sort dropdown, filter groups, active filter chips
 
-### Week 3, Day 11-12: Search Components (In Progress)
+### Week 3, Day 11-12: Search Components ✅ COMPLETE
 
 - [x] **SearchDialog** - Modal search with Cmd+K, predictive results, keyboard nav
 - [x] **SearchResultsPredictive** - Enhanced with Tailwind, product/collection/page results
 
-**Remaining:**
+**P1 Tasks (Deferred):**
 
 - [ ] Performance optimization pass
 - [ ] Accessibility audit
@@ -268,21 +268,21 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** HYDROGEN
+**Role Needed:** TOOLING
 
-**Tasks (Week 3, Day 11-12):**
+**Tasks (Week 3, Day 13-14):**
 
-1. SearchDialog component - modal search overlay
-2. PredictiveSearch component - real-time search suggestions
-3. Performance optimization pass - Lighthouse audit
-4. Accessibility audit - WCAG compliance check
+1. Set up packages/mcp-hydrogen structure
+2. scaffoldComponent tool - generate component boilerplate
+3. scaffoldRoute tool - generate route boilerplate
+4. analyzeProject tool - analyze Hydrogen project structure
 
 **Start Command:**
 
 ```
-Act as HYDROGEN for this session.
-Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
-Execute Week 3, Day 11-12 tasks: Search & Polish.
+Act as TOOLING for this session.
+Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
+Execute Week 3, Day 13-14 tasks: Hydrogen MCP.
 ```
 
 ---
