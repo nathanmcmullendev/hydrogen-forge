@@ -26,43 +26,67 @@ export function CartLineItem({
   const {close} = useAside();
 
   return (
-    <li key={id} className="cart-line">
+    <li
+      key={id}
+      className={`flex gap-4 py-4 ${line.isOptimistic ? 'opacity-60' : ''}`}
+    >
+      {/* Product image */}
       {image && (
-        <Image
-          alt={title}
-          aspectRatio="1/1"
-          data={image}
-          height={100}
-          loading="lazy"
-          width={100}
-        />
-      )}
-
-      <div>
         <Link
           prefetch="intent"
           to={lineItemUrl}
-          onClick={() => {
-            if (layout === 'aside') {
-              close();
-            }
-          }}
+          onClick={() => layout === 'aside' && close()}
+          className="flex-shrink-0"
         >
-          <p>
-            <strong>{product.title}</strong>
-          </p>
+          <div className="h-24 w-24 overflow-hidden rounded-lg border border-secondary-200 bg-secondary-50">
+            <Image
+              alt={title}
+              aspectRatio="1/1"
+              data={image}
+              height={96}
+              loading="lazy"
+              width={96}
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
         </Link>
-        <ProductPrice price={line?.cost?.totalAmount} />
-        <ul>
-          {selectedOptions.map((option) => (
-            <li key={option.name}>
-              <small>
-                {option.name}: {option.value}
-              </small>
-            </li>
-          ))}
-        </ul>
-        <CartLineQuantity line={line} />
+      )}
+
+      {/* Product details */}
+      <div className="flex flex-1 flex-col">
+        <div className="flex justify-between">
+          <div>
+            <Link
+              prefetch="intent"
+              to={lineItemUrl}
+              onClick={() => layout === 'aside' && close()}
+              className="text-sm font-medium text-secondary-900 hover:text-primary-600 transition-colors"
+            >
+              {product.title}
+            </Link>
+
+            {/* Selected options */}
+            {selectedOptions.length > 0 && (
+              <div className="mt-1 flex flex-wrap gap-x-2 text-xs text-secondary-500">
+                {selectedOptions.map((option) => (
+                  <span key={option.name}>
+                    {option.name}: {option.value}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Price */}
+          <div className="ml-4 flex-shrink-0">
+            <ProductPrice price={line?.cost?.totalAmount} size="sm" />
+          </div>
+        </div>
+
+        {/* Quantity controls */}
+        <div className="mt-auto pt-2">
+          <CartLineQuantity line={line} />
+        </div>
       </div>
     </li>
   );
@@ -80,30 +104,63 @@ function CartLineQuantity({line}: {line: CartLine}) {
   const nextQuantity = Number((quantity + 1).toFixed(0));
 
   return (
-    <div className="cart-line-quantity">
-      <small>Quantity: {quantity} &nbsp;&nbsp;</small>
-      <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
-        <button
-          aria-label="Decrease quantity"
-          disabled={quantity <= 1 || !!isOptimistic}
-          name="decrease-quantity"
-          value={prevQuantity}
-        >
-          <span>&#8722; </span>
-        </button>
-      </CartLineUpdateButton>
-      &nbsp;
-      <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
-        <button
-          aria-label="Increase quantity"
-          name="increase-quantity"
-          value={nextQuantity}
-          disabled={!!isOptimistic}
-        >
-          <span>&#43;</span>
-        </button>
-      </CartLineUpdateButton>
-      &nbsp;
+    <div className="flex items-center justify-between">
+      {/* Quantity controls */}
+      <div className="flex items-center rounded-lg border border-secondary-200">
+        <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
+          <button
+            aria-label="Decrease quantity"
+            disabled={quantity <= 1 || !!isOptimistic}
+            name="decrease-quantity"
+            value={prevQuantity}
+            className="flex h-8 w-8 items-center justify-center text-secondary-600 transition-colors hover:bg-secondary-100 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M20 12H4"
+              />
+            </svg>
+          </button>
+        </CartLineUpdateButton>
+
+        <span className="w-10 text-center text-sm font-medium text-secondary-900">
+          {quantity}
+        </span>
+
+        <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
+          <button
+            aria-label="Increase quantity"
+            name="increase-quantity"
+            value={nextQuantity}
+            disabled={!!isOptimistic}
+            className="flex h-8 w-8 items-center justify-center text-secondary-600 transition-colors hover:bg-secondary-100 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+          </button>
+        </CartLineUpdateButton>
+      </div>
+
+      {/* Remove button */}
       <CartLineRemoveButton lineIds={[lineId]} disabled={!!isOptimistic} />
     </div>
   );
@@ -128,7 +185,11 @@ function CartLineRemoveButton({
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button disabled={disabled} type="submit">
+      <button
+        disabled={disabled}
+        type="submit"
+        className="text-xs font-medium text-secondary-500 underline-offset-2 transition-colors hover:text-red-600 hover:underline disabled:cursor-not-allowed disabled:opacity-50"
+      >
         Remove
       </button>
     </CartForm>
