@@ -22,8 +22,7 @@ interface CreateOptions {
 
 interface ShopifyCredentials {
   storeDomain: string;
-  storefrontApiToken: string;
-  adminAccessToken: string;
+  accessToken: string;
 }
 
 export async function createCommand(
@@ -297,14 +296,10 @@ async function promptForShopifyCredentials(): Promise<ShopifyCredentials | null>
   console.log();
   console.log(chalk.dim('  Store domain: Your *.myshopify.com domain'));
   console.log();
-  console.log(chalk.dim('  Storefront API token:'));
-  console.log(chalk.dim('    Sales channels → Headless → [Your Storefront] → Storefront API → Manage'));
-  console.log(chalk.dim('    Copy the "Public access token"'));
-  console.log(chalk.dim('    (No Headless storefront? Create one: Sales channels → Headless → Add storefront)'));
-  console.log();
-  console.log(chalk.dim('  Admin API token:'));
-  console.log(chalk.dim('    You likely already have this from your app setup (starts with shpua_ or shpat_)'));
-  console.log(chalk.dim('    Or: Dev Dashboard (dev.shopify.com) → Apps → [Your App] → Settings'));
+  console.log(chalk.dim('  Admin API access token:'));
+  console.log(chalk.dim('    Shopify Admin → Settings → Apps and sales channels → Develop apps'));
+  console.log(chalk.dim('    → [Your App] → API credentials → Admin API access token'));
+  console.log(chalk.dim('    (Token starts with shpat_)'));
   console.log();
 
   const credentials = await inquirer.prompt([
@@ -324,24 +319,12 @@ async function promptForShopifyCredentials(): Promise<ShopifyCredentials | null>
     },
     {
       type: 'password',
-      name: 'storefrontApiToken',
-      message: 'Storefront API access token:',
+      name: 'accessToken',
+      message: 'Admin API access token:',
       mask: '*',
       validate: (input: string) => {
         if (!input.trim()) {
-          return 'Storefront API token is required';
-        }
-        return true;
-      },
-    },
-    {
-      type: 'password',
-      name: 'adminAccessToken',
-      message: 'Admin API access token (for MCP tools):',
-      mask: '*',
-      validate: (input: string) => {
-        if (!input.trim()) {
-          return 'Admin access token is required';
+          return 'Admin API access token is required';
         }
         return true;
       },
@@ -362,8 +345,7 @@ async function createMcpConfig(
         args: ['-y', '@hydrogen-forge/mcp-shopify'],
         env: {
           SHOPIFY_STORE_DOMAIN: credentials.storeDomain,
-          SHOPIFY_STOREFRONT_ACCESS_TOKEN: credentials.storefrontApiToken,
-          SHOPIFY_ADMIN_ACCESS_TOKEN: credentials.adminAccessToken,
+          SHOPIFY_ACCESS_TOKEN: credentials.accessToken,
         },
       },
     },
