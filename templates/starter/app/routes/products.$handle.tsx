@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/products.$handle';
 import {
@@ -13,6 +14,35 @@ import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {useKlaviyoProductView} from '~/integrations/klaviyo';
+import {
+  FrameCustomizer,
+  type FrameOption,
+} from '~/integrations/frame-customizer';
+
+// Demo frame options - replace with real PNG overlays
+const DEMO_FRAMES: FrameOption[] = [
+  {
+    id: 'black',
+    name: 'Black Wood',
+    overlayUrl: '', // Add real PNG: /frames/black-frame.png
+    swatchColor: '#1a1a1a',
+    priceModifier: 2500,
+  },
+  {
+    id: 'oak',
+    name: 'Natural Oak',
+    overlayUrl: '', // Add real PNG: /frames/oak-frame.png
+    swatchColor: '#c4a77d',
+    priceModifier: 3500,
+  },
+  {
+    id: 'white',
+    name: 'White',
+    overlayUrl: '', // Add real PNG: /frames/white-frame.png
+    swatchColor: '#ffffff',
+    priceModifier: 2000,
+  },
+];
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [
@@ -79,6 +109,7 @@ function loadDeferredData({context, params}: Route.LoaderArgs) {
 
 export default function Product() {
   const {product} = useLoaderData<typeof loader>();
+  const [selectedFrame, setSelectedFrame] = useState<FrameOption | null>(null);
 
   // Optimistically selects a variant with given available variant information
   const selectedVariant = useOptimisticVariant(
@@ -101,15 +132,35 @@ export default function Product() {
 
   const {title, descriptionHtml} = product;
 
+  // Check if this product should show frame options
+  // In production, you might check product.tags or metafields
+  const showFrameCustomizer = true; // Enable for demo
+
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      {showFrameCustomizer && selectedVariant?.image ? (
+        <FrameCustomizer
+          artworkUrl={selectedVariant.image.url}
+          artworkAlt={selectedVariant.image.altText ?? title}
+          frames={DEMO_FRAMES}
+          onSelect={setSelectedFrame}
+          showNoFrame={true}
+        />
+      ) : (
+        <ProductImage image={selectedVariant?.image} />
+      )}
       <div className="product-main">
         <h1>{title}</h1>
         <ProductPrice
           price={selectedVariant?.price}
           compareAtPrice={selectedVariant?.compareAtPrice}
         />
+        {selectedFrame && (
+          <p className="frame-price-modifier">
+            + ${(selectedFrame.priceModifier ?? 0) / 100} for{' '}
+            {selectedFrame.name} frame
+          </p>
+        )}
         <br />
         <ProductForm
           productOptions={productOptions}

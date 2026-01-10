@@ -1615,3 +1615,9 @@ button.reset:hover:not(:has(> *)) {
   color: #666;
   margin-left: 0.25rem;
 }
+
+.frame-price-modifier {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
