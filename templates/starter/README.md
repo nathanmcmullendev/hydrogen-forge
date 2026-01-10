@@ -61,14 +61,14 @@ app/
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server |
-| `pnpm build` | Build for production |
-| `pnpm preview` | Preview production build |
+| Command          | Description                  |
+| ---------------- | ---------------------------- |
+| `pnpm dev`       | Start development server     |
+| `pnpm build`     | Build for production         |
+| `pnpm preview`   | Preview production build     |
 | `pnpm typecheck` | Run TypeScript type checking |
-| `pnpm lint` | Run ESLint |
-| `pnpm format` | Format code with Prettier |
+| `pnpm lint`      | Run ESLint                   |
+| `pnpm format`    | Format code with Prettier    |
 
 ## TypeScript Configuration
 

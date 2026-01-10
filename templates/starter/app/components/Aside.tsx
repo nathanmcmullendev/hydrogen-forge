@@ -59,11 +59,15 @@ export function Aside({
       role="dialog"
     >
       {/* Overlay backdrop */}
-      <div
+      <button
+        type="button"
         className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
           expanded ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={close}
+        onKeyDown={(e) => e.key === 'Enter' && close()}
+        aria-label="Close menu"
+        tabIndex={expanded ? 0 : -1}
       />
 
       {/* Slide-in panel */}
@@ -74,7 +78,9 @@ export function Aside({
       >
         {/* Header */}
         <header className="flex items-center justify-between border-b border-secondary-200 px-6 py-4">
-          <h3 className="text-lg font-semibold text-secondary-900">{heading}</h3>
+          <h3 className="text-lg font-semibold text-secondary-900">
+            {heading}
+          </h3>
           <button
             className="inline-flex h-10 w-10 items-center justify-center rounded-md text-secondary-500 transition-colors hover:bg-secondary-100 hover:text-secondary-700"
             onClick={close}

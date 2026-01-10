@@ -1,5 +1,6 @@
 # Hydrogen Forge - Project Context
-## Last Updated: 2026-01-09 | Week 1, Day 3 Complete
+
+## Last Updated: 2026-01-09 | Week 1 Complete
 
 ---
 
@@ -13,22 +14,23 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 1 - Foundation
-**Day 1-4:** Complete ✅
-**Day 5:** CI/CD & Quality ← NEXT
+### Sprint: Week 1 - Foundation ✅ COMPLETE
 
-### Completed ✅
+**All 5 days completed successfully!**
+
+### Week 1 Completed ✅
+
 - [x] Market research - identified empty market (1 consumer theme, no developer ecosystem)
 - [x] Competitive analysis - documented Ciseco, Weaverse, platform-locked starters
 - [x] Shopify demo-store analysis - 30 routes, 27 components, Mock.shop data structure
-- [x] Technical stack decisions (TypeScript, pnpm, React Router 7)
+- [x] Technical stack decisions (TypeScript, npm workspaces, React Router 7)
 - [x] Collaboration architecture designed (GitHub as single source of truth)
 - [x] Local development environment set up
 - [x] GitHub repository created with full structure
 - [x] 5 role configs created (ARCHITECT, HYDROGEN, TOOLING, DOCS, MANAGER)
 - [x] MCP sync package scaffolded (packages/mcp-claude-sync)
 - [x] Session template and workflow established
-- [x] **4-week sprint plan created with role assignments**
+- [x] 4-week sprint plan created with role assignments
 - [x] **Day 3: Base theme created in templates/starter/**
 - [x] **TypeScript strict mode configured**
 - [x] **Tailwind CSS set up with custom component classes**
@@ -38,37 +40,47 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
   - Navigation.tsx - desktop/mobile views with active state styling
   - Aside.tsx (MobileMenu) - slide-in panel with overlay backdrop
   - PageLayout.tsx - updated imports
+- [x] **Day 5: CI/CD & Quality**
+  - GitHub Actions CI workflow (lint, format, typecheck, build)
+  - Husky + lint-staged pre-commit hooks
+  - README.md with badges
+  - CONTRIBUTING.md with guidelines
 
-### Day 5 Tasks (Next Session)
-| Task | Role | Priority |
-|------|------|----------|
-| GitHub Actions workflow (lint, type, test, build) | TOOLING | P0 |
-| Pre-commit hooks (husky + lint-staged) | TOOLING | P1 |
-| README with badges | DOCS | P1 |
-| CONTRIBUTING.md | DOCS | P1 |
-| Quality review: Week 1 | ARCHITECT | P0 |
+### Week 2 Tasks (Next Session)
+
+| Task                                         | Role     | Priority |
+| -------------------------------------------- | -------- | -------- |
+| ProductCard component                        | HYDROGEN | P0       |
+| ProductGrid component                        | HYDROGEN | P0       |
+| ProductGallery component                     | HYDROGEN | P0       |
+| ProductForm (variant selection, add to cart) | HYDROGEN | P0       |
+| ProductPrice component                       | HYDROGEN | P1       |
 
 ---
 
 ## 4-WEEK EXECUTION PLAN
 
 ### Week 1: Foundation (Days 1-5)
+
 - Day 1-2: Research & infrastructure ✅
 - Day 3: Base theme setup (HYDROGEN)
 - Day 4: Layout components - Header, Footer, Nav (HYDROGEN)
 - Day 5: CI/CD & quality gates (TOOLING)
 
 ### Week 2: Core Components + MCP (Days 6-10)
+
 - Day 6-7: Product components (HYDROGEN)
 - Day 8-9: Enhanced Shopify MCP (TOOLING)
 - Day 10: Cart & Collection components (HYDROGEN)
 
 ### Week 3: Search + Hydrogen MCP (Days 11-15)
+
 - Day 11-12: Search components (HYDROGEN)
 - Day 13-14: Hydrogen MCP (TOOLING)
 - Day 15: Integration testing (ALL)
 
 ### Week 4: CLI + Launch (Days 16-20)
+
 - Day 16-17: CLI development (TOOLING)
 - Day 18-19: Documentation (DOCS)
 - Day 20: Launch (ALL)
@@ -77,25 +89,29 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## DELIVERABLES BY WEEK
 
-### Week 1 Deliverables
-- [ ] Base theme compiles and runs
-- [ ] Layout components (Header, Footer, Nav, MobileMenu)
-- [ ] CI/CD pipeline (GitHub Actions)
-- [ ] ADR-005, ADR-006 documented
+### Week 1 Deliverables ✅
+
+- [x] Base theme compiles and runs
+- [x] Layout components (Header, Footer, Nav, MobileMenu)
+- [x] CI/CD pipeline (GitHub Actions)
+- [ ] ADR-005, ADR-006 documented (moved to Week 2)
 
 ### Week 2 Deliverables
+
 - [ ] Product components (Card, Grid, Gallery, Form, Price)
 - [ ] Cart components (Drawer, LineItem)
 - [ ] Collection components (Grid, Filters)
 - [ ] Enhanced Shopify MCP with executeGraphQL
 
 ### Week 3 Deliverables
+
 - [ ] Search components (Dialog, PredictiveSearch)
 - [ ] Hydrogen MCP (scaffoldComponent, scaffoldRoute)
 - [ ] 95+ PageSpeed score
 - [ ] Accessibility compliance
 
 ### Week 4 Deliverables
+
 - [ ] CLI (npx hydrogen-forge create)
 - [ ] All documentation complete
 - [ ] Live demo deployed
@@ -106,22 +122,27 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 ## ARCHITECTURE DECISIONS
 
 ### ADR-001: Start from Skeleton
+
 **Decision:** Use skeleton template, not demo-store
 **Rationale:** Cleaner starting point, no snowboard-specific code to remove
 
 ### ADR-002: Package Manager
+
 **Decision:** Use pnpm
 **Rationale:** Faster, disk-efficient, stricter dependency resolution
 
 ### ADR-003: TypeScript Strict
+
 **Decision:** Enable strict mode
 **Rationale:** Better type safety, catch errors early
 
 ### ADR-004: GitHub as Single Source of Truth
+
 **Decision:** All collaboration files, context, session logs in GitHub
 **Rationale:** Enables seamless handoffs between Claude Chat, Code, and Projects
 
 ### Pending Decisions
+
 - ADR-005: Component architecture pattern
 - ADR-006: State management approach
 - ADR-007: MCP tool design
@@ -131,6 +152,7 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 ## LOCAL ENVIRONMENT
 
 ### Folder Structure
+
 ```
 C:\xampp\htdocs\HYDROGEN-FORGE\
 ├── hydrogen-forge-repo/        # GitHub repo (this project)
@@ -144,6 +166,7 @@ C:\xampp\htdocs\HYDROGEN-FORGE\
 ```
 
 ### Connected Store
+
 - Domain: dev-store-749237498237498787.myshopify.com
 - Products: 32 (from Commerce Hub migration)
 - Storefront API: Configured in starter-skeleton/.env
@@ -153,6 +176,7 @@ C:\xampp\htdocs\HYDROGEN-FORGE\
 ## COLLABORATION SYSTEM
 
 ### GitHub Repository Structure
+
 ```
 github.com/nathanmcmullendev/hydrogen-forge/
 ├── .claude/
@@ -178,15 +202,17 @@ github.com/nathanmcmullendev/hydrogen-forge/
 ```
 
 ### The 5 Roles
-| Role | Owner | Focus |
-|------|-------|-------|
-| MANAGER | Claude Chat | Orchestration, task assignment |
+
+| Role      | Owner       | Focus                          |
+| --------- | ----------- | ------------------------------ |
+| MANAGER   | Claude Chat | Orchestration, task assignment |
 | ARCHITECT | Claude Code | Planning, ADRs, quality review |
-| HYDROGEN | Claude Code | Components, routes, React code |
-| TOOLING | Claude Code | MCPs, CLI, CI/CD |
-| DOCS | Claude Code | Documentation, guides |
+| HYDROGEN  | Claude Code | Components, routes, React code |
+| TOOLING   | Claude Code | MCPs, CLI, CI/CD               |
+| DOCS      | Claude Code | Documentation, guides          |
 
 ### Session Workflow
+
 ```
 1. User tells Claude Code which role: "Act as HYDROGEN"
 2. Claude Code reads .claude/projects/hydrogen.md
@@ -200,19 +226,22 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** TOOLING (for CI/CD) or DOCS (for README/CONTRIBUTING)
+**Role Needed:** HYDROGEN
 
-**Tasks:**
-1. GitHub Actions workflow (lint, type, test, build)
-2. Pre-commit hooks (husky + lint-staged)
-3. README with badges
-4. CONTRIBUTING.md
+**Tasks (Week 2, Day 6-7):**
+
+1. ProductCard component
+2. ProductGrid component
+3. ProductGallery component
+4. ProductForm (variant selection, add to cart)
+5. ProductPrice component
 
 **Start Command:**
+
 ```
-Act as TOOLING for this session.
-Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
-Execute Day 5 tasks: CI/CD & Quality.
+Act as HYDROGEN for this session.
+Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
+Execute Week 2, Day 6-7 tasks: Product Components.
 ```
 
 ---
@@ -222,6 +251,7 @@ Execute Day 5 tasks: CI/CD & Quality.
 **Location:** `C:\xampp\htdocs\HYDROGEN-FORGE\PRIVATE\CREDENTIALS-MASTER.md`
 
 Contains:
+
 - GitHub token
 - Shopify Storefront API tokens
 - Supabase keys
@@ -231,4 +261,4 @@ Contains:
 
 ---
 
-*This file is the single source of truth. Update it at every session end.*
+_This file is the single source of truth. Update it at every session end._

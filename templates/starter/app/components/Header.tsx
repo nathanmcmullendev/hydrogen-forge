@@ -111,7 +111,9 @@ export function Navigation({
             onClick={close}
             prefetch="intent"
             to={url}
-            className={({isActive}) => (isActive ? activeLinkStyles : linkStyles)}
+            className={({isActive}) =>
+              isActive ? activeLinkStyles : linkStyles
+            }
           >
             {item.title}
           </NavLink>
