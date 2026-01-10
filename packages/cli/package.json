@@ -1,6 +1,6 @@
 {
   "name": "hydrogen-forge",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "CLI for creating and managing Hydrogen Forge projects",
   "type": "module",
   "main": "dist/index.js",
