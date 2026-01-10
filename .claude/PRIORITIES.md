@@ -3,7 +3,7 @@
 ## Current Sprint: Week 2 - Core Components + MCP
 
 **Start Date:** 2026-01-09
-**Status:** Day 8-9 Complete, Day 10 Next
+**Status:** Week 2 Complete, Week 3 Day 11-12 Next
 
 ---
 
@@ -74,14 +74,15 @@
 | MCP tool documentation (README.md)                       | DOCS      | P0       | ✅     |
 | ADR-007: MCP tool design                                 | ARCHITECT | P0       | ⏳     |
 
-### Day 10: Cart & Collection Components ← CURRENT
+### Day 10: Cart & Collection Components ✅ COMPLETE
 
 | Task                        | Role      | Priority | Status |
 | --------------------------- | --------- | -------- | ------ |
-| CartDrawer component        | HYDROGEN  | P0       | ⏳     |
-| CartLineItem component      | HYDROGEN  | P0       | ⏳     |
-| CollectionGrid component    | HYDROGEN  | P0       | ⏳     |
-| CollectionFilters component | HYDROGEN  | P1       | ⏳     |
+| CartMain component (drawer) | HYDROGEN  | P0       | ✅     |
+| CartLineItem component      | HYDROGEN  | P0       | ✅     |
+| CartSummary component       | HYDROGEN  | P0       | ✅     |
+| CollectionGrid component    | HYDROGEN  | P0       | ✅     |
+| CollectionFilters component | HYDROGEN  | P1       | ✅     |
 | Quality review: Week 2      | ARCHITECT | P0       | ⏳     |
 
 ---

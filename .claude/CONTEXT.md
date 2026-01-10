@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 2, Day 8-9 Complete
+## Last Updated: 2026-01-09 | Week 2 Complete
 
 ---
 
@@ -14,9 +14,9 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 2 - Core Components + MCP
+### Sprint: Week 2 - Core Components + MCP ✅ COMPLETE
 
-**Week 1 Complete, Day 8-9 Complete, Day 10 Next**
+**All Week 2 tasks completed! Ready for Week 3.**
 
 ### Week 1 Completed ✅
 
@@ -79,14 +79,22 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 | listLocations | All inventory locations |
 | getProductInventory | Variant inventory details |
 
-### Week 2, Day 10 Tasks (Current)
+### Week 2, Day 10: Cart & Collection Components ✅ COMPLETE
 
-| Task                        | Role     | Priority |
-| --------------------------- | -------- | -------- |
-| CartDrawer component        | HYDROGEN | P0       |
-| CartLineItem component      | HYDROGEN | P0       |
-| CollectionGrid component    | HYDROGEN | P0       |
-| CollectionFilters component | HYDROGEN | P1       |
+- [x] **CartMain** - Enhanced layout for page/aside modes, empty cart state with icon
+- [x] **CartLineItem** - Product image, quantity controls with +/- buttons, remove
+- [x] **CartSummary** - Subtotal, discount codes, gift cards, checkout button
+- [x] **CollectionGrid** - Responsive grid with image cards, overlays, skeleton loader
+- [x] **CollectionFilters** - Sort dropdown, filter groups, active filter chips
+
+### Week 3, Day 11-12 Tasks (Next)
+
+| Task                       | Role     | Priority |
+| -------------------------- | -------- | -------- |
+| SearchDialog component     | HYDROGEN | P0       |
+| PredictiveSearch component | HYDROGEN | P0       |
+| Performance optimization   | HYDROGEN | P1       |
+| Accessibility audit        | HYDROGEN | P1       |
 
 ---
 
@@ -128,11 +136,11 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] CI/CD pipeline (GitHub Actions)
 - [ ] ADR-005, ADR-006 documented (moved to Week 2)
 
-### Week 2 Deliverables
+### Week 2 Deliverables ✅ COMPLETE
 
 - [x] Product components (Card, Grid, Gallery, Form, Price)
-- [ ] Cart components (Drawer, LineItem)
-- [ ] Collection components (Grid, Filters)
+- [x] Cart components (Main, LineItem, Summary)
+- [x] Collection components (Grid, Filters)
 - [x] Enhanced Shopify MCP with executeGraphQL (11 tools)
 
 ### Week 3 Deliverables
@@ -261,19 +269,19 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 **Role Needed:** HYDROGEN
 
-**Tasks (Week 2, Day 10):**
+**Tasks (Week 3, Day 11-12):**
 
-1. CartDrawer component - slide-out cart panel
-2. CartLineItem component - individual cart item display
-3. CollectionGrid component - product collection display
-4. CollectionFilters component - filter/sort UI
+1. SearchDialog component - modal search overlay
+2. PredictiveSearch component - real-time search suggestions
+3. Performance optimization pass - Lighthouse audit
+4. Accessibility audit - WCAG compliance check
 
 **Start Command:**
 
 ```
 Act as HYDROGEN for this session.
 Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
-Execute Week 2, Day 10 tasks: Cart & Collection Components.
+Execute Week 3, Day 11-12 tasks: Search & Polish.
 ```
 
 ---

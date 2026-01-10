@@ -1,18 +1,30 @@
 # Hydrogen Forge - Working Rules
 
 ## Code Quality
+
 - TypeScript strict mode always
 - No `any` types
 - Tests required for components
 - ESLint + Prettier before commit
 
 ## Git Workflow
+
 - One file at a time for complex changes
 - Verify deployment before next change
 - Meaningful commit messages (conventional commits)
 - Stop on errors - diagnose before fixing
 
+## Push Discipline
+
+- Build and test locally first
+- Update docs (CONTEXT.md, PRIORITIES.md)
+- Stage changes: git add -A
+- DO NOT push yourself
+- ASK USER: "Ready to push. Please run: git push origin main"
+- Wait for user confirmation before continuing
+
 ## Commit Convention
+
 Format: `<type>(<scope>): <description> [ROLE]`
 
 Types: feat, fix, docs, style, refactor, test, chore
@@ -22,11 +34,13 @@ Roles: [ARCHITECT], [HYDROGEN], [TOOLING], [DOCS]
 Example: `feat(components): add ProductCard with variants [HYDROGEN]`
 
 ## Session Protocol
+
 - START: Pull .claude/CONTEXT.md
 - WORK: Follow current priorities
 - END: Update CONTEXT.md, create session log
 
 ## Communication
+
 - Senior developer approach
 - No unnecessary explanations
 - Direct, actionable guidance
