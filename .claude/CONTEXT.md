@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 3 Complete
+## Last Updated: 2026-01-09 | Week 4 Day 16-17 Complete
 
 ---
 
@@ -14,9 +14,9 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ## CURRENT STATUS
 
-### Sprint: Week 3 - Search + Hydrogen MCP ✅ COMPLETE
+### Sprint: Week 4 - CLI + Launch (In Progress)
 
-**Week 3 complete! All builds pass, lint clean, ready for Week 4 CLI.**
+**Day 16-17 CLI complete. Day 18-19 Documentation & Polish next.**
 
 ### Week 1 Completed ✅
 
@@ -125,6 +125,22 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - SearchResultsPredictive.tsx: Escaped quotes in JSX
 - analyzeProject.ts: Fixed unnecessary regex escape
 - Added ESLint configs for MCP packages (ESLint 9+ format)
+
+### Week 4, Day 16-17: CLI Development ✅ COMPLETE
+
+- [x] **packages/cli** - Full CLI package with 3 commands
+- [x] **create command** - `npx hydrogen-forge create [name]` with interactive prompts
+- [x] **add command** - `hydrogen-forge add component|route <name>` with auto-detection
+- [x] **setup-mcp command** - Configure MCP servers for Claude Code
+- [x] **README.md** - Full documentation with examples
+
+**CLI Commands:**
+| Command | Description |
+|---------|-------------|
+| `create [name]` | Create new Hydrogen project |
+| `add component <name>` | Add React component |
+| `add route <name>` | Add React Router route |
+| `setup-mcp` | Configure Claude Code MCPs |
 
 ---
 
@@ -297,21 +313,21 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** TOOLING
+**Role Needed:** DOCS
 
-**Tasks (Week 4, Day 16-17):**
+**Tasks (Week 4, Day 18-19):**
 
-1. Set up packages/cli structure
-2. create command (npx hydrogen-forge create)
-3. add command (add component/route)
-4. setup-mcp command
+1. Complete all READMEs
+2. Architecture documentation
+3. Extension guide
+4. Deployment guide (Oxygen)
 
 **Start Command:**
 
 ```
-Act as TOOLING for this session.
-Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
-Execute Week 4, Day 16-17 tasks: CLI Development.
+Act as DOCS for this session.
+Read .claude/projects/docs.md and .claude/PRIORITIES.md.
+Execute Week 4, Day 18-19 tasks: Documentation & Polish.
 ```
 
 ---

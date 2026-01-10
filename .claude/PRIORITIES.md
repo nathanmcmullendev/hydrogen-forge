@@ -120,16 +120,16 @@
 
 ## Week 4: CLI + Launch (Days 16-20)
 
-### Day 16-17: CLI Development ← CURRENT
+### Day 16-17: CLI Development ✅ COMPLETE
 
 | Task                                       | Role    | Priority | Status |
 | ------------------------------------------ | ------- | -------- | ------ |
-| Set up packages/cli structure              | TOOLING | P0       | ⏳     |
-| create command (npx hydrogen-forge create) | TOOLING | P0       | ⏳     |
-| add command (add component/route)          | TOOLING | P1       | ⏳     |
-| setup-mcp command                          | TOOLING | P1       | ⏳     |
+| Set up packages/cli structure              | TOOLING | P0       | ✅     |
+| create command (npx hydrogen-forge create) | TOOLING | P0       | ✅     |
+| add command (add component/route)          | TOOLING | P1       | ✅     |
+| setup-mcp command                          | TOOLING | P1       | ✅     |
 
-### Day 18-19: Documentation & Polish
+### Day 18-19: Documentation & Polish ← CURRENT
 
 | Task                       | Role     | Priority | Status |
 | -------------------------- | -------- | -------- | ------ |
@@ -194,9 +194,9 @@
 | MCP Hydrogen: scaffoldComponent | 3    | P0       | ✅     |
 | MCP Hydrogen: scaffoldRoute     | 3    | P0       | ✅     |
 | MCP Hydrogen: analyzeProject    | 3    | P1       | ✅     |
-| CLI: create command             | 4    | P0       | ⏳     |
-| CLI: add command                | 4    | P1       | ⏳     |
-| CLI: setup-mcp                  | 4    | P1       | ⏳     |
+| CLI: create command             | 4    | P0       | ✅     |
+| CLI: add command                | 4    | P1       | ✅     |
+| CLI: setup-mcp                  | 4    | P1       | ✅     |
 | npm publish                     | 4    | P0       | ⏳     |
 
 ### DOCS Backlog
