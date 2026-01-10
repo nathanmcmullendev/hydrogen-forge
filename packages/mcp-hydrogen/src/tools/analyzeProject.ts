@@ -169,7 +169,7 @@ async function analyzeComponents(projectPath: string): Promise<ComponentInfo[]> 
 
       // Find props interface
       const propsMatch = content.match(
-        /(?:interface|type)\s+(\w+Props)\s*[=\{]/,
+        /(?:interface|type)\s+(\w+Props)\s*[={]/,
       );
       const hasProps = !!propsMatch;
 

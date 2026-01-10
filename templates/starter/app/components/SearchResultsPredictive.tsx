@@ -423,7 +423,9 @@ function SearchResultsPredictiveEmpty({
       </svg>
       <p className="mt-3 text-sm text-secondary-500">
         No results found for{' '}
-        <span className="font-medium text-secondary-700">"{term.current}"</span>
+        <span className="font-medium text-secondary-700">
+          &ldquo;{term.current}&rdquo;
+        </span>
       </p>
     </div>
   );

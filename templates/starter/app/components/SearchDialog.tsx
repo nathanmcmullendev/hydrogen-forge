@@ -67,7 +67,7 @@ export function SearchDialog({isOpen, onClose}: SearchDialogProps) {
       setQuery(value);
 
       if (value.length > 0) {
-        fetcher.submit(
+        void fetcher.submit(
           {q: value, limit: '6', predictive: 'true'},
           {method: 'GET', action: '/search'},
         );
@@ -80,7 +80,7 @@ export function SearchDialog({isOpen, onClose}: SearchDialogProps) {
     (e: React.FormEvent) => {
       e.preventDefault();
       if (query.length > 0) {
-        navigate(`/search?q=${encodeURIComponent(query)}`);
+        void navigate(`/search?q=${encodeURIComponent(query)}`);
         onClose();
       }
     },
@@ -313,7 +313,7 @@ export function SearchDialog({isOpen, onClose}: SearchDialogProps) {
                     />
                   </svg>
                   <p className="mt-4 text-sm text-secondary-500">
-                    No results found for "{query}"
+                    No results found for &ldquo;{query}&rdquo;
                   </p>
                   <p className="mt-1 text-xs text-secondary-400">
                     Try searching for something else
