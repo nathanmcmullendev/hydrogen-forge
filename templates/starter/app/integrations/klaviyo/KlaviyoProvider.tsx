@@ -35,35 +35,47 @@ export function KlaviyoProvider({publicKey, children}: KlaviyoProviderProps) {
 
   // Load Klaviyo script on mount
   useEffect(() => {
-    if (!publicKey || typeof window === 'undefined') return;
+    // Skip on server
+    if (typeof window === 'undefined') return;
+
+    // Check if publicKey is provided
+    if (!publicKey) {
+      console.warn('[Klaviyo] No public key provided - skipping script load');
+      return;
+    }
+
+    console.log('[Klaviyo] Initializing with public key:', publicKey);
 
     // Initialize _learnq array for queueing before script loads
     window._learnq = window._learnq || [];
 
     // Check if already loaded
     const existingScript = document.querySelector(
-      `script[src*="klaviyo.js?company_id=${publicKey}"]`,
+      'script[src*="static.klaviyo.com"]',
     );
     if (existingScript) {
+      console.log('[Klaviyo] Script already loaded');
       setIsLoaded(true);
       return;
     }
 
-    // Create and load script
+    // Create and load script - use https explicitly
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.async = true;
-    script.src = `//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${publicKey}`;
+    script.src = `https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${publicKey}`;
 
     script.onload = () => {
+      console.log('[Klaviyo] Script loaded successfully');
       setIsLoaded(true);
     };
 
-    script.onerror = () => {
-      console.error('[Klaviyo] Failed to load script');
+    script.onerror = (error) => {
+      console.error('[Klaviyo] Failed to load script:', error);
     };
 
     document.head.appendChild(script);
+    console.log('[Klaviyo] Script tag added to head');
   }, [publicKey]);
 
   /**

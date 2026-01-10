@@ -88,7 +88,10 @@ export function SubscriptionSelector({
       {/* Purchase Type Toggle */}
       <div className="subscription-selector__options">
         {/* One-time Purchase Option */}
-        <label className="subscription-selector__option">
+        <label
+          className="subscription-selector__option"
+          aria-label="One-time purchase"
+        >
           <input
             type="radio"
             name="purchase-type"
@@ -105,7 +108,10 @@ export function SubscriptionSelector({
         </label>
 
         {/* Subscription Option */}
-        <label className="subscription-selector__option subscription-selector__option--subscription">
+        <label
+          className="subscription-selector__option subscription-selector__option--subscription"
+          aria-label="Subscribe and save"
+        >
           <input
             type="radio"
             name="purchase-type"

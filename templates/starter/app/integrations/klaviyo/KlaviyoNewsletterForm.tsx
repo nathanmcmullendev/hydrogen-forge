@@ -59,53 +59,45 @@ export function KlaviyoNewsletterForm({
       setErrorMessage('');
 
       try {
-        // Klaviyo Client API v3 subscription endpoint
+        // Use Klaviyo's _learnq for subscription (avoids CORS issues)
+        const _learnq = window._learnq || [];
+
+        // Identify the subscriber
+        _learnq.push([
+          'identify',
+          {
+            $email: email,
+            $source: source,
+          },
+        ]);
+
+        // Subscribe to the list using Klaviyo's form submission method
+        // This uses their backend proxy which handles CORS
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('g', listId); // 'g' is the list ID parameter
+        formData.append('$fields', '$source');
+        formData.append('$source', source);
+
         const response = await fetch(
-          `https://a.klaviyo.com/client/subscriptions/?company_id=${klaviyo.publicKey}`,
+          `https://manage.kmail-lists.com/ajax/subscriptions/subscribe`,
           {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              revision: '2024-02-15',
-            },
-            body: JSON.stringify({
-              data: {
-                type: 'subscription',
-                attributes: {
-                  custom_source: source,
-                  profile: {
-                    data: {
-                      type: 'profile',
-                      attributes: {
-                        email,
-                      },
-                    },
-                  },
-                },
-                relationships: {
-                  list: {
-                    data: {
-                      type: 'list',
-                      id: listId,
-                    },
-                  },
-                },
-              },
-            }),
+            body: formData,
           },
         );
 
-        if (response.ok || response.status === 202) {
+        const result = (await response.json()) as {
+          success?: boolean;
+          errors?: string[];
+        };
+
+        if (result.success || response.ok) {
           setStatus('success');
           setEmail('');
           onSuccess?.();
-
-          // Also identify the user in Klaviyo
-          klaviyo.identify({$email: email});
         } else {
-          const errorData = await response.json().catch(() => ({}));
-          const message =
-            errorData?.errors?.[0]?.detail || 'Subscription failed';
+          const message = result.errors?.[0] ?? 'Subscription failed';
           setStatus('error');
           setErrorMessage(message);
           onError?.(message);
@@ -133,7 +125,7 @@ export function KlaviyoNewsletterForm({
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={(e) => void handleSubmit(e)}
       className={`klaviyo-newsletter-form ${className}`}
     >
       {status === 'success' ? (

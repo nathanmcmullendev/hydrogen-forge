@@ -76,6 +76,16 @@ export async function loader(args: Route.LoaderArgs) {
 
   const {storefront, env} = args.context;
 
+  // Debug: Log Klaviyo env vars on server
+  if (env.KLAVIYO_PUBLIC_KEY) {
+    console.log(
+      '[Root Loader] Klaviyo public key found:',
+      env.KLAVIYO_PUBLIC_KEY,
+    );
+  } else {
+    console.warn('[Root Loader] KLAVIYO_PUBLIC_KEY not found in env');
+  }
+
   return {
     ...deferredData,
     ...criticalData,
@@ -92,9 +102,9 @@ export async function loader(args: Route.LoaderArgs) {
       country: args.context.storefront.i18n.country,
       language: args.context.storefront.i18n.language,
     },
-    // Klaviyo integration
-    klaviyoPublicKey: env.KLAVIYO_PUBLIC_KEY,
-    klaviyoListId: env.KLAVIYO_LIST_ID,
+    // Klaviyo integration - pass to client
+    klaviyoPublicKey: env.KLAVIYO_PUBLIC_KEY || '',
+    klaviyoListId: env.KLAVIYO_LIST_ID || '',
   };
 }
 

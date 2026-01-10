@@ -48,7 +48,7 @@ export interface KlaviyoAddedToCart {
   AddedItemProductName: string;
   AddedItemProductID: string;
   AddedItemVariantID: string;
-  AddedItemSKU?: string;
+  AddedItemSKU?: string | null;
   AddedItemImageURL?: string;
   AddedItemURL: string;
   AddedItemPrice: string;
@@ -68,7 +68,7 @@ export interface KlaviyoCartItem {
   RowTotal: string;
   ProductURL: string;
   ImageURL?: string;
-  SKU?: string;
+  SKU?: string | null;
 }
 
 /** Newsletter subscription result */
@@ -131,13 +131,13 @@ export interface TrackableProduct {
 export interface TrackableVariant {
   id: string;
   title: string;
-  sku?: string;
+  sku?: string | null;
   price: {
     amount: string;
   };
   image?: {
     url: string;
-  };
+  } | null;
 }
 
 /** Cart line for tracking */
@@ -147,13 +147,13 @@ export interface TrackableCartLine {
   merchandise: {
     id: string;
     title: string;
-    sku?: string;
+    sku?: string | null;
     price: {
       amount: string;
     };
     image?: {
       url: string;
-    };
+    } | null;
     product: {
       id: string;
       title: string;

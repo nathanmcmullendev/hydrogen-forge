@@ -21,6 +21,20 @@ export default async function handleRequest(
     },
   });
 
+  // Add Klaviyo domains to CSP
+  // Since there's no explicit script-src, we add it and also extend connect-src
+  const cspHeader = header
+    .replace(
+      'default-src',
+      "script-src 'self' https://cdn.shopify.com https://static.klaviyo.com https://static-tracking.klaviyo.com 'nonce-" +
+        nonce +
+        "'; default-src",
+    )
+    .replace(
+      'connect-src',
+      'connect-src https://a.klaviyo.com https://static-tracking.klaviyo.com https://manage.kmail-lists.com',
+    );
+
   const body = await renderToReadableStream(
     <NonceProvider>
       <ServerRouter
@@ -44,7 +58,7 @@ export default async function handleRequest(
   }
 
   responseHeaders.set('Content-Type', 'text/html');
-  responseHeaders.set('Content-Security-Policy', header);
+  responseHeaders.set('Content-Security-Policy', cspHeader);
 
   return new Response(body, {
     headers: responseHeaders,
