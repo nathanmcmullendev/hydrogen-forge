@@ -379,6 +379,59 @@ Check GitHub issues for feature requests/bugs.
 
 ## MAINTENANCE LOG
 
+### 2026-01-10: Plugin Integrations Phase 1-2 (v0.2.6)
+
+**Feature:** Pre-built React integrations for headless Shopify apps
+
+**Implemented:**
+
+1. **Klaviyo Integration** (Phase 1)
+   - `KlaviyoProvider` - Script loader + context
+   - `KlaviyoNewsletterForm` - Client API v3 subscription
+   - `useKlaviyoProductView` - Viewed Product/Item tracking
+   - `useKlaviyoTracking` - Add to cart, checkout events
+   - Newsletter form wired into Footer component
+   - Product view tracking in products.$handle.tsx
+
+2. **Recharge/Subscriptions Integration** (Phase 2)
+   - `SubscriptionSelector` - One-time vs Subscribe toggle
+   - `SubscriptionPrice` - Price with subscription discount
+   - `SubscriptionBadge` - Cart line subscription info
+   - `useSubscription` - State management hook
+   - GraphQL fragments for Selling Plans
+   - Full CSS styling for all components
+
+**Files Created:**
+
+```
+templates/starter/app/integrations/
+├── index.ts
+├── klaviyo/
+│   ├── index.ts
+│   ├── KlaviyoProvider.tsx
+│   ├── KlaviyoNewsletterForm.tsx
+│   ├── useKlaviyoTracking.ts
+│   └── types.ts
+└── subscriptions/
+    ├── index.ts
+    ├── SubscriptionSelector.tsx
+    ├── SubscriptionPrice.tsx
+    ├── useSubscription.ts
+    ├── sellingPlans.ts
+    └── types.ts
+
+docs/integrations/
+├── KLAVIYO.md
+└── RECHARGE.md
+```
+
+**Next Phases (Pending):**
+
+- Phase 3: Algolia (Search & Discovery)
+- Phase 4: Okendo (Reviews & UGC)
+
+---
+
 ### 2026-01-09: CLI env variable fix (v0.2.5)
 
 **Issue:** CLI generated `.mcp.json` with wrong env variable names that didn't match what the MCP package expected.
