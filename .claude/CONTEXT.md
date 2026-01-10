@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 4 Day 16-17 Complete
+## Last Updated: 2026-01-09 | Week 4 Day 18-19 Complete
 
 ---
 
@@ -16,7 +16,7 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ### Sprint: Week 4 - CLI + Launch (In Progress)
 
-**Day 16-17 CLI complete. Day 18-19 Documentation & Polish next.**
+**Day 18-19 Documentation complete. Day 20 Launch next.**
 
 ### Week 1 Completed ✅
 
@@ -142,6 +142,22 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 | `add route <name>` | Add React Router route |
 | `setup-mcp` | Configure Claude Code MCPs |
 
+### Week 4, Day 18-19: Documentation & Polish ✅ COMPLETE
+
+- [x] **Root README.md** - Comprehensive project overview with badges
+- [x] **docs/ARCHITECTURE.md** - System design, patterns, data flow
+- [x] **docs/EXTENSION.md** - Adding components, routes, customization
+- [x] **docs/DEPLOYMENT.md** - Oxygen, Vercel, Cloudflare, Docker guides
+- [x] **Package READMEs verified** - CLI, MCP-Shopify, MCP-Hydrogen all complete
+
+**Documentation Created:**
+| File | Description |
+|------|-------------|
+| `README.md` | Project overview, quick start, package list |
+| `docs/ARCHITECTURE.md` | System design, component patterns, MCP integration |
+| `docs/EXTENSION.md` | How to add components, routes, styles, integrations |
+| `docs/DEPLOYMENT.md` | Deploy to Oxygen, Vercel, Cloudflare, Docker |
+
 ---
 
 ## 4-WEEK EXECUTION PLAN
@@ -189,19 +205,19 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 - [x] Collection components (Grid, Filters)
 - [x] Enhanced Shopify MCP with executeGraphQL (11 tools)
 
-### Week 3 Deliverables
+### Week 3 Deliverables ✅ COMPLETE
 
-- [ ] Search components (Dialog, PredictiveSearch)
-- [ ] Hydrogen MCP (scaffoldComponent, scaffoldRoute)
-- [ ] 95+ PageSpeed score
-- [ ] Accessibility compliance
+- [x] Search components (Dialog, PredictiveSearch)
+- [x] Hydrogen MCP (scaffoldComponent, scaffoldRoute, analyzeProject)
+- [ ] 95+ PageSpeed score (deferred)
+- [ ] Accessibility compliance (deferred)
 
-### Week 4 Deliverables
+### Week 4 Deliverables (Day 20 remaining)
 
-- [ ] CLI (npx hydrogen-forge create)
-- [ ] All documentation complete
-- [ ] Live demo deployed
-- [ ] npm packages published
+- [x] CLI (npx hydrogen-forge create)
+- [x] All documentation complete
+- [ ] Live demo deployed (pending)
+- [ ] npm packages published (Day 20)
 
 ---
 
@@ -281,8 +297,9 @@ github.com/nathanmcmullendev/hydrogen-forge/
 │   └── logs/                   # Session logs
 ├── research/                   # Research artifacts
 ├── packages/
+│   ├── cli/                    # hydrogen-forge CLI (3 commands)
 │   ├── mcp-shopify/            # Enhanced Shopify MCP (11 tools)
-│   └── mcp-claude-sync/        # Collaboration MCP (scaffolded)
+│   └── mcp-hydrogen/           # Hydrogen MCP (3 tools)
 ├── templates/                  # Theme templates (Week 1)
 ├── docs/                       # Documentation
 └── CLAUDE.md                   # Auto-read bootstrap file
@@ -313,21 +330,26 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** DOCS
+**Role Needed:** TOOLING
 
-**Tasks (Week 4, Day 18-19):**
+**Tasks (Week 4, Day 20 - Launch):**
 
-1. Complete all READMEs
-2. Architecture documentation
-3. Extension guide
-4. Deployment guide (Oxygen)
+1. Publish MCPs to npm (@hydrogen-forge/mcp-shopify, @hydrogen-forge/mcp-hydrogen)
+2. Publish CLI to npm (hydrogen-forge)
+3. Final quality check
+4. Launch announcement (optional)
+
+**Prerequisites:**
+
+- npm account with publish access
+- Packages tested locally
 
 **Start Command:**
 
 ```
-Act as DOCS for this session.
-Read .claude/projects/docs.md and .claude/PRIORITIES.md.
-Execute Week 4, Day 18-19 tasks: Documentation & Polish.
+Act as TOOLING for this session.
+Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
+Execute Week 4, Day 20 tasks: npm publish and launch.
 ```
 
 ---
