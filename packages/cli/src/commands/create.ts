@@ -293,10 +293,18 @@ async function promptForShopifyCredentials(): Promise<ShopifyCredentials | null>
   }
 
   console.log();
-  console.log(chalk.dim('You can find these values in your Shopify admin:'));
-  console.log(chalk.dim('  Store domain: Settings → Domains'));
-  console.log(chalk.dim('  Storefront API token: Settings → Apps → Develop apps → Storefront API'));
-  console.log(chalk.dim('  Admin access token: Settings → Apps → Develop apps → Admin API'));
+  console.log(chalk.dim('Where to find these values:'));
+  console.log();
+  console.log(chalk.dim('  Store domain: Your *.myshopify.com domain'));
+  console.log();
+  console.log(chalk.dim('  Storefront API token:'));
+  console.log(chalk.dim('    Sales channels → Headless → [Your Storefront] → Storefront API → Manage'));
+  console.log(chalk.dim('    Copy the "Public access token"'));
+  console.log(chalk.dim('    (No Headless storefront? Create one: Sales channels → Headless → Add storefront)'));
+  console.log();
+  console.log(chalk.dim('  Admin API token:'));
+  console.log(chalk.dim('    You likely already have this from your app setup (starts with shpua_ or shpat_)'));
+  console.log(chalk.dim('    Or: Dev Dashboard (dev.shopify.com) → Apps → [Your App] → Settings'));
   console.log();
 
   const credentials = await inquirer.prompt([

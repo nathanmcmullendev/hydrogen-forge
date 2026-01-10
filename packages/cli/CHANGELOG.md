@@ -2,6 +2,13 @@
 
 All notable changes to this package will be documented in this file.
 
+## [0.2.3] - 2026-01-09
+
+### Fixed
+
+- Updated credential instructions with correct Shopify admin paths
+- Added instructions for creating Headless storefront
+
 ## [0.2.2] - 2026-01-09
 
 ### Fixed
