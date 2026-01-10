@@ -1,6 +1,6 @@
 # Hydrogen Forge - Project Context
 
-## Last Updated: 2026-01-09 | Week 3 Day 11-12 Complete
+## Last Updated: 2026-01-09 | Week 3 Day 13-14 Complete
 
 ---
 
@@ -16,7 +16,7 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 ### Sprint: Week 3 - Search + Hydrogen MCP (In Progress)
 
-**Day 11-12 Search Components complete. Day 13-14 Hydrogen MCP next.**
+**Day 13-14 Hydrogen MCP complete. Day 15 Integration Testing next.**
 
 ### Week 1 Completed ✅
 
@@ -96,6 +96,21 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 
 - [ ] Performance optimization pass
 - [ ] Accessibility audit
+
+### Week 3, Day 13-14: Hydrogen MCP ✅ COMPLETE
+
+- [x] **packages/mcp-hydrogen** - Full MCP server package
+- [x] **scaffoldComponent** - Generate components (basic, product, collection, cart, form, layout types)
+- [x] **scaffoldRoute** - Generate routes (page, resource, collection, product, account, api types)
+- [x] **analyzeProject** - Analyze Hydrogen project structure with recommendations
+- [x] **README.md** - Full documentation with setup instructions
+
+**MCP Tools Available:**
+| Tool | Description |
+|------|-------------|
+| scaffoldComponent | Generate React/Hydrogen components |
+| scaffoldRoute | Generate React Router routes |
+| analyzeProject | Analyze project structure |
 
 ---
 
@@ -268,21 +283,20 @@ github.com/nathanmcmullendev/hydrogen-forge/
 
 ## NEXT SESSION INSTRUCTIONS
 
-**Role Needed:** TOOLING
+**Role Needed:** HYDROGEN / TOOLING / ARCHITECT
 
-**Tasks (Week 3, Day 13-14):**
+**Tasks (Week 3, Day 15):**
 
-1. Set up packages/mcp-hydrogen structure
-2. scaffoldComponent tool - generate component boilerplate
-3. scaffoldRoute tool - generate route boilerplate
-4. analyzeProject tool - analyze Hydrogen project structure
+1. Full user flow testing (HYDROGEN)
+2. MCP integration tests (TOOLING)
+3. Quality review: Week 3 (ARCHITECT)
 
 **Start Command:**
 
 ```
-Act as TOOLING for this session.
-Read .claude/projects/tooling.md and .claude/PRIORITIES.md.
-Execute Week 3, Day 13-14 tasks: Hydrogen MCP.
+Act as HYDROGEN for this session.
+Read .claude/projects/hydrogen.md and .claude/PRIORITIES.md.
+Execute Week 3, Day 15 tasks: Integration Testing.
 ```
 
 ---
