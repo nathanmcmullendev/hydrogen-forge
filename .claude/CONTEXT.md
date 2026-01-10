@@ -167,7 +167,7 @@ Build "Hydrogen Forge" - the first developer-focused ecosystem for Shopify Hydro
 |---------|---------|--------|
 | @hydrogen-forge/mcp-shopify | 0.1.0 | 44d699d645d36817da5422d4ca8181355604f427 |
 | @hydrogen-forge/mcp-hydrogen | 0.1.0 | 16ea3ee4fac6a24e4543fcfe7baf322af9d3f36c |
-| hydrogen-forge | 0.1.0 | 977d8728e09aeda521bef28484f698f9203e8e34 |
+| hydrogen-forge | 0.2.5 | 580aac7a327fa0f6499d11e53a77d3953aed8703 |
 
 **Installation Commands:**
 
@@ -359,6 +359,7 @@ github.com/nathanmcmullendev/hydrogen-forge/
 - `npx hydrogen-forge create my-store`
 - `@hydrogen-forge/mcp-shopify@0.1.0`
 - `@hydrogen-forge/mcp-hydrogen@0.1.0`
+- `hydrogen-forge@0.2.5` (CLI)
 
 **Future Work (v0.2):**
 
@@ -373,6 +374,42 @@ github.com/nathanmcmullendev/hydrogen-forge/
 Read .claude/CONTEXT.md and .claude/PRIORITIES.md.
 Check GitHub issues for feature requests/bugs.
 ```
+
+---
+
+## MAINTENANCE LOG
+
+### 2026-01-09: CLI env variable fix (v0.2.5)
+
+**Issue:** CLI generated `.mcp.json` with wrong env variable names that didn't match what the MCP package expected.
+
+**Before (broken):**
+
+```json
+{
+  "SHOPIFY_STORE_DOMAIN": "...",
+  "SHOPIFY_STOREFRONT_ACCESS_TOKEN": "...",
+  "SHOPIFY_ADMIN_ACCESS_TOKEN": "..."
+}
+```
+
+**After (fixed):**
+
+```json
+{
+  "SHOPIFY_STORE_DOMAIN": "...",
+  "SHOPIFY_ACCESS_TOKEN": "..."
+}
+```
+
+**Changes:**
+
+- `packages/cli/src/commands/create.ts`: Changed `SHOPIFY_ADMIN_ACCESS_TOKEN` → `SHOPIFY_ACCESS_TOKEN`
+- Removed unused `SHOPIFY_STOREFRONT_ACCESS_TOKEN` (MCP only uses Admin API)
+- Simplified credential prompts (only admin token needed)
+- Bumped version to 0.2.5
+
+**Verified:** MCP connection tested successfully with real store credentials.
 
 ---
 
