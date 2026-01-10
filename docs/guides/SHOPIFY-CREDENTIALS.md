@@ -79,7 +79,7 @@ If you need to create one:
 1. Find the **Public access token** section
 2. Click the **Copy** button or select and copy the token
 
-![Copy public access token](../images/credentials/step5-copy-token.png)
+![Copy public access token](../images/credentials/step5-copy-storefront-token.png)
 
 The token looks something like:
 
