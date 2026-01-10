@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## [0.2.1] - 2026-01-09
+
+### Fixed
+
+- Fixed git commit shell escaping bug where commit message words were parsed as separate arguments
+
 ## [0.2.0] - 2026-01-09
 
 ### Added

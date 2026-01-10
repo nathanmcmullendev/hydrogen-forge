@@ -134,7 +134,7 @@ export async function createCommand(
       async () => {
         await runCommand('git', ['init'], targetDir);
         await runCommand('git', ['add', '.'], targetDir);
-        await runCommand('git', ['commit', '-m', 'Initial commit from Hydrogen Forge'], targetDir);
+        await runCommand('git', ['commit', '-m', '"Initial commit from Hydrogen Forge"'], targetDir);
       },
     );
   }
