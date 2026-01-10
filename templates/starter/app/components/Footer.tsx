@@ -1,17 +1,20 @@
 import {Suspense} from 'react';
 import {Await, NavLink} from 'react-router';
 import type {FooterQuery, HeaderQuery} from 'storefrontapi.generated';
+import {KlaviyoNewsletterForm} from '~/integrations/klaviyo';
 
 export interface FooterProps {
   footer: Promise<FooterQuery | null>;
   header: HeaderQuery;
   publicStoreDomain: string;
+  klaviyoListId?: string;
 }
 
 export function Footer({
   footer: footerPromise,
   header,
   publicStoreDomain,
+  klaviyoListId,
 }: FooterProps) {
   return (
     <Suspense>
@@ -20,7 +23,7 @@ export function Footer({
           <footer className="border-t border-secondary-200 bg-secondary-50">
             <div className="container-narrow py-12">
               <div className="grid gap-8 md:grid-cols-4">
-                {/* Brand Section */}
+                {/* Brand & Newsletter Section */}
                 <div className="md:col-span-2">
                   <h3 className="text-lg font-bold text-secondary-900">
                     {header.shop.name}
@@ -28,6 +31,20 @@ export function Footer({
                   <p className="mt-2 text-sm text-secondary-600">
                     Quality products, exceptional service.
                   </p>
+                  {klaviyoListId && (
+                    <div className="mt-4">
+                      <p className="text-sm font-medium text-secondary-700">
+                        Subscribe to our newsletter
+                      </p>
+                      <KlaviyoNewsletterForm
+                        listId={klaviyoListId}
+                        placeholder="Enter your email"
+                        buttonText="Subscribe"
+                        successMessage="Thanks for subscribing!"
+                        className="mt-2"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Navigation Section */}

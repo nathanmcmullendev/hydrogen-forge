@@ -15,7 +15,9 @@ import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import resetStyles from '~/styles/reset.css?url';
 import tailwindStyles from '~/styles/tailwind.css?url';
+import appStyles from '~/styles/app.css?url';
 import {PageLayout} from './components/PageLayout';
+import {KlaviyoProvider} from '~/integrations/klaviyo';
 
 export type RootLoader = typeof loader;
 
@@ -90,6 +92,9 @@ export async function loader(args: Route.LoaderArgs) {
       country: args.context.storefront.i18n.country,
       language: args.context.storefront.i18n.language,
     },
+    // Klaviyo integration
+    klaviyoPublicKey: env.KLAVIYO_PUBLIC_KEY,
+    klaviyoListId: env.KLAVIYO_LIST_ID,
   };
 }
 
@@ -151,6 +156,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={tailwindStyles}></link>
+        <link rel="stylesheet" href={appStyles}></link>
         <Meta />
         <Links />
       </head>
@@ -171,15 +177,17 @@ export default function App() {
   }
 
   return (
-    <Analytics.Provider
-      cart={data.cart}
-      shop={data.shop}
-      consent={data.consent}
-    >
-      <PageLayout {...data}>
-        <Outlet />
-      </PageLayout>
-    </Analytics.Provider>
+    <KlaviyoProvider publicKey={data.klaviyoPublicKey || ''}>
+      <Analytics.Provider
+        cart={data.cart}
+        shop={data.shop}
+        consent={data.consent}
+      >
+        <PageLayout {...data}>
+          <Outlet />
+        </PageLayout>
+      </Analytics.Provider>
+    </KlaviyoProvider>
   );
 }
 

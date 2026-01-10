@@ -12,6 +12,7 @@ import {ProductPrice} from '~/components/ProductPrice';
 import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import {useKlaviyoProductView} from '~/integrations/klaviyo';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [
@@ -94,6 +95,9 @@ export default function Product() {
     ...product,
     selectedOrFirstAvailableVariant: selectedVariant,
   });
+
+  // Track product view in Klaviyo
+  useKlaviyoProductView(product, selectedVariant);
 
   const {title, descriptionHtml} = product;
 

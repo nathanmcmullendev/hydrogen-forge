@@ -21,6 +21,7 @@ interface PageLayoutProps {
   header: HeaderQuery;
   isLoggedIn: Promise<boolean>;
   publicStoreDomain: string;
+  klaviyoListId?: string;
   children?: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ export function PageLayout({
   header,
   isLoggedIn,
   publicStoreDomain,
+  klaviyoListId,
 }: PageLayoutProps) {
   return (
     <Aside.Provider>
@@ -50,6 +52,7 @@ export function PageLayout({
         footer={footer}
         header={header}
         publicStoreDomain={publicStoreDomain}
+        klaviyoListId={klaviyoListId}
       />
     </Aside.Provider>
   );
