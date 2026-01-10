@@ -32,7 +32,10 @@ export async function runCommand(
   cwd: string,
 ): Promise<void> {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
+    // Join command and args into single string to avoid deprecation warning
+    // when using shell: true with args array
+    const fullCommand = [command, ...args].join(' ');
+    const child = spawn(fullCommand, [], {
       cwd,
       stdio: 'inherit',
       shell: true,

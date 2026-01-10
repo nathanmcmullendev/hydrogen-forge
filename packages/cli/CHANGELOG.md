@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## [0.2.2] - 2026-01-09
+
+### Fixed
+
+- Fixed Node.js deprecation warning (DEP0190) for shell spawn with args array
+
 ## [0.2.1] - 2026-01-09
 
 ### Fixed
